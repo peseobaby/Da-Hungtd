@@ -13,7 +13,7 @@ class CreateRoomHasConviencesTable extends Migration
      */
     public function up()
     {
-        Schema::create('room_has_conviences', function (Blueprint $table) {
+        Schema::create('room_has_conveniences', function (Blueprint $table) {
             $table->increments('id');
             $table->string('content');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateRoomHasConviencesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('room_has_conviences');
+        Schema::dropIfExists('room_has_conveniences');
     }
 }

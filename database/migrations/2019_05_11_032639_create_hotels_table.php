@@ -17,7 +17,7 @@ class CreateHotelsTable extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->unsignedInteger('address_id')->nullable();
-            $table->foreign('address_id')->references('id')->on('address');
+            $table->foreign('address_id')->references('id')->on('addresses');
             $table->unsignedTinyInteger('rating')->nullable();
             $table->timestamps();
         });

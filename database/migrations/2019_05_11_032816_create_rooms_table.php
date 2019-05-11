@@ -8,7 +8,7 @@ class CreateRoomsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     *ad
      * @return void
      */
     public function up()
@@ -25,7 +25,7 @@ class CreateRoomsTable extends Migration
             $table->unsignedInteger('price')->nullable();
             $table->unsignedTinyInteger('active')->default('1')->comment('1: con, 0: het phong');
             $table->unsignedInteger('convenience_id')->nullable();
-            $table->foreign('convenience_id')->references('id')->on('room_has_conviences');
+            $table->foreign('convenience_id')->references('id')->on('room_has_conveniences');
             $table->timestamps();
         });
     }
