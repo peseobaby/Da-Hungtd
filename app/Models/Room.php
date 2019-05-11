@@ -19,7 +19,8 @@ class Room extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [];
+    protected $fillable = ['name', 'type_id', 'capacity', 'num_bed_room', 'area', 'price',
+                            'active', 'convenience_id'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -28,6 +29,10 @@ class Room extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function type()
+    {
+        return $this->belongsTo('App\Models\RoomType', 'type_id');
+    }
 
     /*
     |--------------------------------------------------------------------------

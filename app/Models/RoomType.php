@@ -19,7 +19,7 @@ class RoomType extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [];
+    protected $fillable = ['name'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -34,7 +34,10 @@ class RoomType extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function rooms()
+    {
+        return $this->hasMany('App\Models\Room');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES
