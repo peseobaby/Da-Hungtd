@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ConvenienceRequest extends FormRequest
+class UpdateAddressRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +25,9 @@ class ConvenienceRequest extends FormRequest
     public function rules()
     {
         return [
-             'name' => 'required|min:5|max:255'
+            'name' => 'required',
+            'provide' => 'required',
+            'city' => 'required',
         ];
     }
 

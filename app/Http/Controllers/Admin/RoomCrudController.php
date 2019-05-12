@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Convenience;
+use App\Models\RoomHasConvenience;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
@@ -43,24 +45,6 @@ class RoomCrudController extends CrudController
         $this->crud->setRequiredFields(UpdateRequest::class, 'edit');
     }
 
-    public function store(StoreRequest $request)
-    {
-        // your additional operations before save here
-        $redirect_location = parent::storeCrud($request);
-        // your additional operations after save here
-        // use $this->data['entry'] or $this->crud->entry
-        return $redirect_location;
-    }
-
-    public function update(UpdateRequest $request)
-    {
-        // your additional operations before save here
-        $redirect_location = parent::updateCrud($request);
-        // your additional operations after save here
-        // use $this->data['entry'] or $this->crud->entry
-        return $redirect_location;
-    }
-
     public function addField()
     {
         $this->crud->addField([
@@ -71,11 +55,11 @@ class RoomCrudController extends CrudController
         $this->crud->addField([
             'label' => 'Type',
             'type' => 'select',
-            'name' => 'type',
+            'name' => 'type_id',
             'entity' => 'type',
             'attribute' => 'name',
             'model'=> 'App\Models\RoomType'
-            ]);
+        ]);
         $this->crud->addField([
             'name' => 'capacity',
             'label' => 'Capacity',
@@ -95,6 +79,16 @@ class RoomCrudController extends CrudController
             'name' => 'price',
             'label' => 'Price',
             'type' => 'number',
+        ]);
+
+        $this->crud->addField([
+            'label'     => 'Conveniences',
+            'type'      => 'checklist_custom',
+            'name'      => 'convenience_id',
+            'options'   => Convenience::all()->pluck('name', 'id')->toArray(),
+            'value' => function($entry) {
+                return $entry ? explode(':', $entry->convenience->content) : [];
+            }
         ]);
     }
 
@@ -137,9 +131,31 @@ class RoomCrudController extends CrudController
             'options' => [0 => 'Not Free', 1 => 'Free']
         ]);
         $this->crud->addColumn([
-            'name' => 'aconvenience_id',
-            'label' => 'Aconvenience',
-            'type' => 'text',
+            'name' => 'convenience',
+            'label' => 'Convenience',
+            'type' => 'closure',
+            'function' => function($entry) {
+                return $entry->getAllConvenience()->implode('name', ', ');
+            }
         ]);
     }
+
+    public function store(StoreRequest $request)
+    {
+        $convenience = RoomHasConvenience::create(['content' => implode(':', $request->convenience_id)]);
+        $request->merge(['convenience_id' => $convenience->id]);
+        $redirect_location = parent::storeCrud($request);
+        return $redirect_location;
+    }
+
+    public function update(UpdateRequest $request)
+    {
+        $convenience = $request->convenience_id;
+        $request->offsetUnset('convenience_id');
+        $redirect_location = parent::updateCrud($request);
+        $this->crud->entry->convenience->update(['content' => implode(':', $convenience)]);
+        return $redirect_location;
+    }
+
+
 }
