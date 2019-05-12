@@ -19,7 +19,7 @@ class Address extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [];
+    protected $fillable = ['name', 'city', 'provide'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -29,12 +29,23 @@ class Address extends Model
     |--------------------------------------------------------------------------
     */
 
+    /**
+     * get full address
+     * @return string
+     */
+    public function getFullAddress()
+    {
+        return $this->name . ", ". getCity($this->city)['name'] . ", " . getProvide($this->provide)['name'];
+    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function hotel()
+    {
+        return $this->hasOne(Hotel::class);
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES
