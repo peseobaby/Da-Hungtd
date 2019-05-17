@@ -1,0 +1,347 @@
+.header--primary {
+	@extend .container-fluid;
+	position: relative;
+	height: 64rem;
+	overflow: hidden;
+	padding: 0;
+	background: url(../../../assets/images/banner.jpg) no-repeat;
+	background-size: cover;
+	background-position: center;
+	nav {
+		@extend .container;
+		color: $color-white;
+		font-size: 1.3rem;
+		display: flex;
+		justify-content: space-between;
+		padding: 0 3rem;
+		.logo {
+			@extend .col-2;
+			padding: 0;
+			display: flex;
+			align-items: center;
+			color: $color-black;
+			font-family: Sant-Bold;
+			h1 {
+				font-size: 4.2rem;
+			}
+			span {
+				color: $color-pink;
+			}
+		}
+		ul {
+			li {
+				list-style: none;
+				height: 100%;
+				margin: 0 .5rem;
+				display: inline-block;
+				a {
+					color: $color-white;
+					margin: 0 .5rem;
+					padding: 0 .5rem;
+					display: block;
+					cursor: pointer;
+					text-decoration: none;
+					i {
+						padding: 0 .5rem;
+					}			
+				}
+				&:last-child {
+					margin-right: 0;
+					a {
+						&:last-child {
+							padding-right: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+	.nav--top {
+		@extend .container-fluid;
+		height: 3.5rem;
+		line-height: 3.5rem;
+		background: rgba(0, 0, 0, .25);
+		padding: 0;
+		.top--content {
+			font-size: 1.1rem;
+		}
+		i {
+			padding-right: 5px;
+		}
+	}
+
+	.nav--primary {
+		height: 10rem;
+		line-height: 10rem;
+		.logo {
+			@extend .col-2;
+		}
+		.menu {
+			@extend .col-8;
+			justify-content: flex-end;
+			display: flex;
+		}
+		ul {
+			position: relative;
+			&:before {
+			    content: '';
+			    position: absolute;
+			    left: 0;
+			    right: 0;
+			    top: 0;
+			    bottom: 0;
+			    background: rgba(255, 255, 255, 0.3);
+			    filter: blur(1rem);
+			    opacity: .1;
+			}
+			li {
+				position: relative;
+				a {
+					position: relative;
+					&:before {
+						content: '';
+					    width: 0;
+					    height: .2rem;
+					    position: absolute;
+					    bottom: 30%;
+					    background: $color-pink;
+					    left: 0;
+					    right: 0;
+					    display: none;
+					}
+					&:hover {
+						&:before {
+							width: 100%;
+							display: block;
+						}
+					}
+
+					&.active--primary {
+						font-weight: bold;
+						&:before {
+							width: 100%;
+							display: block;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.image--wraper {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: -1;
+		img {
+			width: 100%;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 30%;
+			margin-top: -330px;
+		}
+	}
+
+	.search {
+		@extend .container;
+		position: absolute;
+		bottom: 35%;
+		margin: auto;
+		left: 0;
+		right: 0;
+		font-size: 1.3rem;
+		.search__nav {
+			height: 3rem;
+			padding: 0;
+			ul {
+				.nav-item {
+					&:first-child {
+						margin-left: 0 !important;
+					}
+				}
+				border-bottom: none;
+				li {
+					a {
+						position: relative;
+						display: block;
+						height: 100%;
+						padding: 0;
+						text-transform: uppercase;
+						&:first-child {
+							margin-left: 0;
+						}
+						&:before {
+							content: '';
+						    width: 0;
+						    height: .2rem;
+						    position: absolute;
+						    background: $color-pink;
+						    left: 0;
+						    right: 0;
+						    bottom: .2rem;
+						    display: none;
+						}
+						&:hover {
+							&:before {
+								width: 100%;
+								display: block;
+							}
+						}
+						&.active {
+							font-weight: 500;
+							&:before {
+								width: 100%;
+								display: block;
+							}
+						}
+					}
+
+				}
+			}
+		}
+
+		.info__nav {
+			border-radius: 5px;
+			height: 11rem;
+			padding: 1.5rem 2rem;
+			font-size: 1.2rem;
+			position: relative;
+			width: 100%;
+			overflow: hidden;
+			z-index: 1;
+			// box-shadow: 0rem .1rem .5rem rgba(255, 255, 255, .5);
+			.overley {
+				background: $color-black;
+				opacity: .6;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				z-index: -1;
+			}
+			.tab-content {
+				font-weight: bold;
+				.active {
+					color: $color-pink;
+				}
+			}
+
+			.form__search {
+				width: 100%;
+				height: 4.5rem;
+				background: #fff;
+				border-radius: 0.5rem;
+				margin-top: 1rem;
+				display: flex;
+				align-items: center;
+				padding: 0 1.5rem;
+				position: relative;
+				.form__item {
+					display: flex;
+					align-items: center;
+					border-right: 1px solid $color-grey;
+					margin-right: 2rem;
+					&:last-child {
+						border-right: 0;
+					}
+					i {
+						padding: 0 1rem;
+						color: $color-grey;
+					}
+					input, select, option {
+						all: unset;
+						width: 100%;
+						color: #6c757d !important;
+					}
+				}
+				.form__input {
+					width: 35%;
+				}
+				.form__checkin, .form__checkout {
+					width: 15%;
+					input {
+						width: 80%;
+					}
+				}
+				.form__picked-people {
+					width: 15%;
+					border-right: none;
+					select {
+						width: 90%;
+						all: unset;
+					}
+				}
+				.form__button {
+					width: 10%;
+					position: absolute;
+					right: 0;
+					top: 0;
+					bottom:0;
+					button {
+						background: $color-pink;
+						width: 100%;
+						height: 100%;
+						color: $color-white;
+						font-size: 1.3rem;
+					}
+				}				
+			}
+		}
+	}
+
+	.gift {
+		@extend .container;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		height: 8rem;
+		display: flex;
+		.gift__item {
+			height: 100%;
+			border: 1px solid $color-black;
+			border-bottom:0;
+			position: relative;
+			padding: 15px 20px;
+			text-align: center;
+			font-size: 1.5rem;
+			color: $color-white;
+			display: flex;
+			flex-flow: wrap;
+			align-items: center;
+			justify-content: center;
+			&:before {
+				content:'';
+				position: absolute;
+				top:0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				display: block;
+				background: rgba(0,0,0,.7);
+				opacity: .4;
+				z-index: -1;
+			}
+			p {
+				margin: 0;
+			}
+			span {
+				font-size: 1.2rem;
+				font-family: Sanf-Light;
+			}
+
+		}
+		.gift__item:nth-child(odd) {
+			border-right: 0;
+		}
+		.gift__item:nth-child(2) {
+			border-right: 0;
+		}
+	}
+
+}

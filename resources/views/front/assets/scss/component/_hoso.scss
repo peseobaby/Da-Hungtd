@@ -1,0 +1,140 @@
+.host--content {
+	.container-flex {
+		display: flex;
+		align-items: flex-start;
+	}
+	aside {
+		@extend .col-md-3;
+		// border: 1px solid $color-grey;
+		box-shadow: $box-shadow;
+		padding: 2rem 1.5rem;
+		justify-content: flex-start;
+		.info-profile {
+			display: flex;
+			border-bottom: 1px solid $color-grey-light;
+			padding-bottom: 1rem;
+			margin-bottom: 1.5rem;
+			img {
+				height: 5rem;
+				width: 5rem;
+				border-radius: 50%;
+				margin-right: 1rem;
+				margin-bottom: .2rem;
+				object-fit: cover;
+			}
+		}
+
+		.nav {
+			ul {
+				padding: 0;
+				width: 100%;
+				li {
+					list-style: none;
+					margin-bottom: 1rem;
+					a {
+						display: block;
+						position: relative;
+						padding: 1rem 1.5rem;
+						color: $color-black;
+						font-size: $font-size-sm;
+						font-weight: 500;
+						&:before {
+							content: '';
+							width: .2rem;
+							background: $color-pink;
+							position: absolute;
+							right: 0;
+							top: 50%;
+							bottom: 0;
+							display: none;
+							height: 70%;
+							transform: translate(-50%, -50%);
+						}
+					}
+					a.active {
+						&:before {
+							display: block;
+						}
+					}
+
+					a:hover {
+						&:before {
+							display: block;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	article {
+		@extend .col-md-9;
+		font-size: $font-size-sm;
+		font-weight: 500;
+		.form-group {
+			span.important {
+				color: red;
+			}
+			.d-flex {
+				select {
+					margin-right: 2rem;
+				}
+			}
+			div.col-9 {
+				span {
+					font-size: $font-size-xsm;
+					color: $color-grey;
+					margin-top: 1rem;
+				}
+			}
+			.upload-file {
+				@extend .col-md-5;
+				.custom-file {
+					border: none;
+				}
+				.custom-file, .custom-file-input, .custom-file-label {
+					@extend .form-control, .form-control-lg;
+				}
+				.custom-file-label {
+					&:after {
+						height: 100%;
+					}
+				}
+				ul {
+					margin-top: 1.5rem;
+				}
+			}
+			.image-center {
+				@extend .center--box, .col-md-4;
+				justify-content: center;
+				border-left: 1px solid $color-grey-light;
+				height: 20rem;
+				max-height: 15rem;
+				img {
+					margin-top: 0;
+					height: 100%;
+					width: auto;
+					object-fit: cover;
+				}
+			}		
+		}
+		.button--control {
+			@extend .col-md-11;
+			display: flex;
+			justify-content: flex-end;
+			button {
+				background: $color-pink;
+				padding: .8rem 2.5rem;
+				color: $color-white;
+				font-weight: 500;
+				@extend .my-3;
+			}
+		}
+	}
+}
+
+.show--img {
+	display: block;
+	margin-top: 1.5rem;
+	width: 100%;
+}	

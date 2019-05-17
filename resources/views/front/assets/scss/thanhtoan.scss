@@ -1,0 +1,16 @@
+@import 'normalize';
+
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../fonts/font-awesome/scss/fontawesome.scss';
+
+@import 'varialble';
+@import 'global';
+
+
+@import 'component/_header-core';
+@import 'component/_thanhtoan';
+
+// import component content o day.
+
+@import 'component/_footer-core';
+
