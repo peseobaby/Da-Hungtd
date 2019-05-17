@@ -1,0 +1,141 @@
+.create {
+	background: $color-pink;
+	padding: 1rem 3rem;
+	font-size: $font-size-sm;
+	color: $color-white;
+	margin-bottom: 3rem;
+	@extend .my-5;
+	&:hover {
+		box-shadow: .1rem .1rem .5rem $color-grey;
+	}
+}
+
+.host--content {
+	margin-top: 2rem;
+	.nav {
+		@extend .container;
+		font-size: $font-size-sm;
+		padding: 0;
+		position: relative;
+		a {
+			padding: 1.5rem 2rem; 
+			color: $color-black;
+			font-weight: 500;
+		}
+	}
+	.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+		border: 0;
+		border-bottom: .2rem solid $color-pink;
+	}
+	article {
+		@extend .col-md-8;
+		section {
+			margin-bottom: 5rem;
+		}
+		.day {
+			display: flex;
+			justify-content: space-between;
+			padding-bottom: 1.5rem;
+			border-bottom: 1px solid $color-grey;
+			.calender {
+				@extend .col-md-4;
+				input {
+					@extend .form-control, .form-control-lg;
+					font-size: $font-size-sm;
+				}
+			}
+		}
+		.nav-tabs {
+			margin-top: 1rem;
+		}
+
+		.tab-content {
+			padding-top: 1rem;
+			.item {
+				display: flex;
+				justify-content: space-between;
+				border-bottom: 1px solid $color-grey-light;
+				padding: 1.5rem 0;
+				.left {
+					@extend .col-md-7;
+					padding: 0;
+					display: flex;
+					.image {
+						@extend .col-md-2;
+						padding: 0;
+						overflow: auto;
+						margin-right: 1.5rem;
+						img {
+							width: 100%;
+						}
+					}
+					.detail {
+						a {
+							text-decoration: none;
+						}
+						h1 {
+							color: $color-black;
+							font-size: $font-size-lg;
+						}
+						.day-picker {
+							color: orange;
+						}
+					}
+				}
+
+				.right {
+					padding: 0;
+					@extend .col-md-4;
+					display: flex;
+					justify-content: flex-end;
+
+					.price {
+						color: $color-pink;
+						font-size: $font-size-lg;
+						font-weight: 600;
+					}
+
+					.button-control {
+						button {
+							padding: .8rem 2rem;
+							background: transparent;
+							color: $color-black;
+							font-weight: 500;
+							&:hover {
+								box-shadow: 1px 1px 5px $color-grey;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	aside {
+		@extend .col-md-4;
+		padding-right: 0;
+		.total {
+			border: 1px solid $color-grey-light;
+			padding: 1.5rem 2rem;
+			font-weight: 500;
+			font-size: $font-size-sm;
+			h1 {
+				padding-bottom: 1rem;
+				border-bottom: 1px solid $color-grey-light;
+			}
+			&--log {
+				display: flex;
+				margin-top: 1rem;
+				justify-content: space-between;
+				span {
+					color: $color-pink;
+					font-size: $font-size-md;
+					font-weight: 600;
+				}
+			}
+		}
+		.message {
+			@extend .total;
+		}
+	}
+}

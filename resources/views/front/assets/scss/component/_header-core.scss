@@ -1,0 +1,252 @@
+.header--primary {
+	@extend .container-fluid;
+	position: relative;
+	overflow: hidden;
+	padding: 0;
+	border-bottom: 1px solid $color-grey-light;
+	font-weight: 500;
+	nav {
+		@extend .container;
+		color: $color-black;
+		font-size: 1.4rem;
+		display: flex;
+		justify-content: space-between;
+		ul {
+			li {
+				list-style: none;
+				height: 100%;
+				margin: 0 .5rem;
+				display: inline-block;
+				a {
+					color: $color-black;
+					padding: 0 .5rem;
+					display: block;
+					cursor: pointer;
+					text-decoration: none;
+					i {
+						padding: 0 .5rem;
+					}			
+				}
+				&:last-child {
+					margin-right: 0;
+					a {
+						&:last-child {
+							padding-right: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+	.nav--top {
+		@extend .container-fluid;
+		height: 3.5rem;
+		line-height: 3.5rem;
+		background: #f7f7f7;
+		padding: 0;
+		.top--content {
+			font-size: 1.2rem;
+		}
+		i {
+			padding-right: .5rem;
+		}
+
+		ul {
+			padding: 0;
+			li {
+				position: relative;
+				img {
+					width: 2.5rem;
+					height: 2.5rem;
+					border-radius: 50%;
+					margin-right: 1rem;
+					margin-bottom: .1rem;
+					object-fit: cover;
+				}
+				ul {
+					text-align: center;
+					display: none;
+					position: absolute;
+					right: 0;
+					left: -1.5rem;
+					border: 1px solid $color-grey;
+					border-top: 0;
+					border-radius: .3rem;
+					background: $color-white;
+					z-index: 2;
+					width: 20rem;
+					li {
+						display: block;
+						a {
+							padding: 0;
+							&:hover {
+								color: $color-pink;
+							}
+						}
+					}
+				}
+				&:hover {
+					ul {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+
+	.nav--primary {
+		height: 10rem;
+		line-height: 10rem;
+		.logo {
+			@extend .col-2;
+			padding: 0;
+			display: flex;
+			align-items: center;
+			color: $color-black;
+			font-family: Sant-Bold;
+			h1 {
+				font-size: 4.2rem;
+			}
+			span {
+				color: $color-pink;
+			}
+		}
+		.menu {
+			@extend .col-8;
+			justify-content: flex-end;
+			display: flex;
+		}
+		ul {
+			position: relative;
+			li {
+				position: relative;
+				a {
+					position: relative;
+				}
+			}
+		}
+		.active--primary {
+			font-weight: bold;
+		}
+		.hidden {
+			width: 40px;
+		}
+		.nav--check {
+			position: absolute;
+			opacity: 0;
+			visibility: hidden;
+		}
+		.nav--overley {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			background: rgba(0,0,0,.9);
+			z-index: 3;
+			display: none;
+		}
+		.close--button {
+			width: 4rem;
+			height: 4rem;
+			text-align: center;
+			position: fixed;
+			right: 10%;
+			top: 2rem;
+			z-index: 4;
+			background: transparent;
+			cursor: pointer;
+			display: none;
+			font-size: 6rem;
+			color: $color-gray;
+			&:hover {
+				color: $color-white;	
+			}
+		}
+		.nav--mobile {
+			display: flex;
+			align-items: center;
+			text-align: right;
+			height: 100%;
+
+			.icon-nav {
+				width: 100%;
+				cursor: pointer;
+			}
+			.mobile-icon {
+				position: relative;
+			}
+			.mobile-icon {
+				width: 80%;
+				height: .3rem;
+				background: $color-black;
+				display: block;
+				margin-bottom: 5px;
+			}
+		}
+		input#mobileNav:checked ~ .nav--overley {
+			display: block;
+			bottom: 0;
+			height: 100%; 
+		}
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	.nav--primary {
+		h1 {
+			font-size: 3.2rem;
+		}
+		ul{
+			display: none;
+		}
+
+		.hidden {
+			display: block;
+		}
+
+		input#mobileNav:checked ~ ul{
+			display: block;
+			position: fixed;
+			z-index: 4;
+			left: 50%;
+			transform: translate(-50%, 0);
+			padding: 0;
+			width: 40%;
+			text-align: center;
+			li {
+				display: block;
+				a {
+					color: $color-gray;
+					&:hover {
+						color: $color-white;
+					}
+				}
+				.active--primary {
+					color: $color-white;
+				}
+			}
+		}
+
+		.nav--overley {
+			display: none;
+		}
+
+		input#mobileNav:checked ~ .close--button {
+			display: block;
+		}
+	}
+}
+@media screen and (max-width: 550px) {
+	.header--primary {
+		.nav--top {
+			display: none;
+		}
+		.close--button {
+			left: 50%;
+    		top: auto !important;
+    		bottom: 10%;
+    		transform: translate(-50%);
+		}
+	}
+}
+

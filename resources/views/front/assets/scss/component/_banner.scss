@@ -1,0 +1,124 @@
+.home--banner {
+	background: url('../images/home_banner.png') center center no-repeat;
+	height: 500px;
+	background-size: cover;
+	position: relative;
+	margin-bottom: 6rem;
+	.home--search {
+		padding: 0 20px;
+		margin: 0 auto;
+		position: absolute;
+		bottom: 15%;
+		width: 100%;
+		font-size: 2rem;
+		&-form {
+			max-width: 1500px;
+			background: $color-white;
+			display: flex;
+			border-radius: 8px;
+			align-items: center;
+			padding: 10px;
+			box-shadow: 0 30 60 0 rgba(0,0,0,.32);
+		}
+		.search__flex {
+			display: flex;
+			height: 50px;
+			align-items: center;
+			justify-content: space-between;
+		}
+		.search__boder {
+			// border-right: 1px solid $color-grey-light;
+		}
+		.search__input {
+			// @extend .col-md-3;
+			width: 30%;
+			padding: 0 1rem;
+			i {
+				@extend .pt-1;
+			}	
+			.search__grid {
+				@extend .col-md-12;
+			}
+			input {
+				border: none;
+				outline: 0;
+				box-shadow: none;
+				font-size: 1.6rem;
+			}
+		}
+		.search__picker {
+			// @extend .col-md-4;
+			width: 40%;
+			padding: 0 3rem;
+			border-left: 1px solid $color-grey-light;
+			border-right: 1px solid $color-grey-light;
+			.search__datetime {
+				display: flex;
+				align-items: center;
+				i {
+					padding-right: 1rem;
+				}
+				.datetime {
+					text-transform: uppercase;
+					display: flex;
+					align-items: center;
+					.day {
+						float: left;
+						font-size: 3.2rem;
+						font-weight: bold;
+						padding-right: 1.2rem;
+					}
+					span {
+						display: block;
+						font-size: 1.2rem;
+						&:first-child {
+							float: left;
+						}
+						&:last-child {
+							color: $color-grey;
+							text-transform: none;
+						}
+					}			
+				}
+			}
+			.search__icon {
+				font-size: 1.4rem;
+				line-height: 1.2rem;
+				border-bottom: 1px solid $color-grey;
+				padding: 5px 10px;
+			}
+		}
+		.search__pick-human {
+			width: 10%;
+			padding: 0 3rem;
+			justify-content: flex-start;
+			padding-right: 1rem;
+			border-right: 0;
+			i {
+				padding-right: 1rem;
+			}
+			label {
+				font-size: 1.4rem;
+				color: $color-grey;
+				margin: 0;
+				strong {
+					color: $color-black;
+				}
+			}
+		}
+		.search__btn {
+			width: 20%;
+			height: 50px;
+			justify-content: flex-end;
+			display: flex;
+			button {
+				font-size: 1.8rem;
+				height: 100%;
+				padding: 0 5rem;
+				border-radius: 8px;
+				background: $color-orange;
+				color: $color-white;
+			}
+		}
+	}
+}
