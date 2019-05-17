@@ -33,12 +33,36 @@ class ConvenienceCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
-        // TODO: remove setFromDb() and manually define Fields and Columns
-        $this->crud->setFromDb();
+        $this->setupColumns();
+        $this->setupFields();
+        $this->setupFilter();
 
         // add asterisk for fields that are required in ConvenienceRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
         $this->crud->setRequiredFields(UpdateRequest::class, 'edit');
+    }
+
+    private function setupColumns()
+    {
+        $this->crud->addColumn([
+            'type' => 'text',
+            'name' => 'name',
+            'label' => 'Name'
+        ]);
+    }
+
+    private function setupFields()
+    {
+        $this->crud->addField([
+            'type' => 'text',
+            'name' => 'name',
+            'label' => 'Name'
+        ]);
+    }
+
+    private function setupFilter()
+    {
+
     }
 
     public function store(StoreRequest $request)

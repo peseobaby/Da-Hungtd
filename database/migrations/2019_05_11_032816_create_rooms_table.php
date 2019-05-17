@@ -17,7 +17,7 @@ class CreateRoomsTable extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->unsignedInteger('type')->nullable();
-            $table->foreign('type')->references('id')->on('room_types');
+            $table->foreign('type_id')->references('id')->on('room_types');
             $table->unsignedTinyInteger('capacity')->nullable();
             $table->unsignedTinyInteger('num_bed_room')->nullable();
             $table->float('area')->nullable();

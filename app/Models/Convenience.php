@@ -19,7 +19,7 @@ class Convenience extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [];
+    protected $fillable = ['name'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -28,7 +28,10 @@ class Convenience extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-
+    public static function getConvenience($ids = [])
+    {
+        return self::whereIn('id', $ids)->get();
+    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

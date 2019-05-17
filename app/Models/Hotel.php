@@ -19,7 +19,7 @@ class Hotel extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [];
+    protected $fillable = ['name', 'address_id', 'rating'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -34,7 +34,10 @@ class Hotel extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function address()
+    {
+        return $this->belongsTo(Address::class, 'address_id');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES
