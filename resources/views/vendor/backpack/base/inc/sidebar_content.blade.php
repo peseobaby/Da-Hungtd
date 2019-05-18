@@ -5,3 +5,5 @@
 <li><a href='{{ backpack_url('convenience') }}'><i class='fa fa-tag'></i> <span>Conveniences</span></a></li>
 <li><a href='{{ backpack_url('room') }}'><i class='fa fa-tag'></i> <span>Rooms</span></a></li>
 <li><a href='{{ backpack_url('room-type') }}'><i class='fa fa-tag'></i> <span>Room Types</span></a></li>
+<li><a href='{{ backpack_url('event') }}'><i class='fa fa-tag'></i> <span>Events</span></a></li>
+<li><a href='{{ backpack_url('order') }}'><i class='fa fa-tag'></i> <span>Orders</span></a></li>
