@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Convenience;
 use App\Models\RoomHasConvenience;
+use App\Repositories\RoomHasConvenience\RoomHasConvenienceRepository;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
@@ -18,6 +19,14 @@ use App\Models\Room;
  */
 class RoomCrudController extends CrudController
 {
+    private $roomHasConvenienceRepo;
+
+    public function __construct(RoomHasConvenienceRepository $roomHasConvenienceRepo)
+    {
+        parent::__construct();
+        $this->roomHasConvenienceRepo = $roomHasConvenienceRepo;
+    }
+
     public function setup()
     {
         /*
@@ -142,7 +151,7 @@ class RoomCrudController extends CrudController
 
     public function store(StoreRequest $request)
     {
-        $convenience = RoomHasConvenience::create(['content' => implode(':', $request->convenience_id)]);
+        $convenience = $this->roomHasConvenienceRepo->create(['content' => implode(':', $request->convenience_id)]);
         $request->merge(['convenience_id' => $convenience->id]);
         $redirect_location = parent::storeCrud($request);
         return $redirect_location;
