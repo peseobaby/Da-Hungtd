@@ -5,64 +5,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Go Home Theme Front End</title>
 	<!--build:css css/styles.min.css -->
-	<link rel="stylesheet" href="assets/css/thanhtoan.css">
-	<link rel="stylesheet" href="assets/fonts/font-awesome/css/all.min.css">
+	<link rel="stylesheet" href="../assets/css/thanhtoan.css">
+	<link rel="stylesheet" href="../assets/fonts/font-awesome/css/all.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;subset=vietnamese" rel="stylesheet">
 	<!-- endbuild -->
 </head>
 <body>
 	<!-- Header -->
-	<header class="header--primary">
-		<div class="nav--top">
-			<nav class="top--content">
-				<div class="nav--top-icon">
-					<i class="far fa-phone"></i>
-					<span>123 456 7890 123</span>
-				</div>
-			
-				<ul>
-					<li><a href="#">Việt Nam<i class="far fa-angle-down"></i></i></a></li>
-					<li><a href="#">Đăng nhập</a></li>
-					<li><a href="#">Đăng ký</a></li>
-				</ul>
-			</nav>
-		</div>
-		<nav class="nav--primary">
-			<div class="logo">
-				<h1>Travel<span>trip</span></h1>
-			</div>
-
-			<!-- Nav mobile -->
-			<label class="hidden" for="mobileNav">
-				<div class="nav--mobile">
-					<div class="icon-nav">
-						<span class="mobile-icon"></span>
-						<span class="mobile-icon"></span>
-						<span class="mobile-icon"></span>
-					</div>
-				</div>
-			</label>
-
-			<input type="checkbox" class="nav--check" id="mobileNav">
-
-			<label class="nav--overley" for="mobileNav"></label>
-
-			<label for="mobileNav" class="close--button">
-				<i class="far fa-times"></i>
-			</label>
-			
-
-
-			<ul>
-				<li><a href="#" class="active--primary">Trang chủ</a></li>
-				<li><a href="#">Homestay</a></li>
-				<li><a href="#">Giới thiệu</a></li>
-				<li><a href="#">Hướng dẫn</a></li>
-				<li><a href="#">Chính sách</a></li>
-				<li><a href="#">Liên hệ</a></li>
-			</ul>
-		</nav>
-	</header>
+	@include('layout.header')
 
 	<!-- Content -->
 	<section class="sub--content">
@@ -103,7 +53,7 @@
 									<label for="name">Họ và tên: </label>
 
 									<div>
-										<input type="text" class="form-control form-control-lg" placeholder="Nhập tên như CMT hoặc hộ chiếu">
+										<input type="text" class="form-control form-control-lg" placeholder="Nhập tên như CMT hoặc hộ chiếu" value="{{ $order->user->num_id }}">
 									</div>
 								</div>
 
@@ -111,7 +61,7 @@
 									<label for="name">Số điện thoại: </label>
 
 									<div>
-										<input type="text" class="form-control form-control-lg" placeholder="VD: +84965788674">
+										<input type="text" class="form-control form-control-lg" placeholder="VD: +84965788674" value="{{ $order->user->phone }}>
 									</div>
 								</div>
 
@@ -119,7 +69,7 @@
 									<label for="name">Email: </label>
 
 									<div>
-										<input type="text" class="form-control form-control-lg" placeholder="VD: hoangdhph04904@fpt.edu.vn">
+										<input type="text" class="form-control form-control-lg" placeholder="VD: abc@viralsoft.vn" value="{{ $order->user->email }}>
 									</div>	
 								</div>
 
@@ -183,16 +133,15 @@
 							<div class="confirm--info confirm_box">
 								<h4>Thông tin đơn đặt phòng</h4>
 
-								<p>Mã đơn đặt phòng: 5784-bd245</p>
-								<p>Họ và tên: Đào Huy Hoàng</p>
-								<p>E-mail: hoangdhph04904@fpt.edu.vn</p>
-								<p>Địa chỉ: Kim Lan - Gia Lâm - Hà Nội</p>
+								<p>Họ và tên: {{ $order ->user->name }}</p>
+								<p>E-mail: {{ $order ->user->email }}</p>
+								<p>Địa chỉ: {{ $order ->user->address }}</p>
 								<p>Quốc tịch: Việt Nam</p>
 							</div>
 							<div class="confirm_box">
 								<h4>Thanh toán</h4>
 
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione et, vel repudiandae? Recusandae esse, molestiae magni in provident cumque maiores architecto laborum soluta illum quidem minus laboriosam officiis a vitae.30</p>
+								<p></p>
 							</div>
 						</section>
 					</fieldset>
@@ -233,26 +182,22 @@
 								
 
 								<div class="details">
-									<h4 class="name">Homestay travelchip</h4>
+									<h4 class="name">{{  }}</h4>
 
-									<span class="descripton">Homestay</span>
-									<span class="descripton">Kim Lan - Gia Lâm - Hà nội</span>
+									<span class="descripton">{{ $order ->room->name }}</span>
+									<span class="descripton">{{ $order ->hotel->address }}</span>
 
 								</div>
 							</div>
 
 							<div class="fare--details">
 								<div class="form-group">
-									<label for="">Số đêm</label>
-									<label for="" class="bold">1 đêm</label>
-								</div>
-								<div class="form-group">
 									<label for="">Ngày đến</label>
-									<label for="" class="bold">17-09-2018</label>		
+									<label for="" class="bold">{{ $order ->create_at }}</label>		
 								</div>
 								<div class="form-group">
 									<label for="">Ngày đi</label>
-									<label for="" class="bold">17-09-2018</label>	
+									<label for="" class="bold">{{ $order ->end_at }}</label>	
 								</div>
 								<div class="form-group">
 									<label for="">Số khách</label>
@@ -261,7 +206,7 @@
 
 								<div class="total">
 									<label for="">Tổng giá</label>
-									<h4>$550</h4>
+									<h4>{{ $order ->price }}</h4>
 								</div>
 							</div>
 						</div>
@@ -272,77 +217,12 @@
 		</form>
 	</section>
 
-
-
 	<!-- Footer -->
-	<footer>
-		<section class="footer footer--content">
-			<div class="page">
-				<h5>Like Traveltrip để cập nhật những tin tức mới nhất.</h5>
-			</div>
-
-			<div class="about">
-				<h5>Về chúng tôi</h5>
-
-				<nav>
-					<ul>
-						<li><a href="">Giới thiệu</a></li>
-						<li><a href="">Điều khoản hoạt động</a></li>
-						<li><a href="">Chính sách bản quyền</a></li>
-						<li><a href="">Chính sách bảo mật</a></li>
-					</ul>
-				</nav>
-			</div>
-
-			<div class="suport">
-				<h5>Hỗ trợ</h5>
-
-				<nav>
-					<ul>
-						<li><a href="">Câu hỏi thường gặp</a></li>
-						<li><a href="">Chính sách hủy</a></li>
-						<li><a href="">Hướng dẫn sử dụng</a></li>
-					</ul>
-				</nav>
-			</div>
-
-			<div class="friend">
-				<h5>Bạn bè liên kết</h5>
-
-				<nav>
-					<ul>
-						<li><a href="">Luxstay</a></li>
-						<li><a href="">VNtrip</a></li>
-						<li><a href="">Agoda</a></li>
-					</ul>
-				</nav>
-			</div>
-			
-		</section>
-
-		<section class="footer--bottom">
-			<div class="footer--width">
-				<div class="logo-social">
-					<img src="" alt="">
-
-					<i class="fab fa-facebook-f"></i>
-					<i class="fab fa-google-plus-g"></i>
-					<i class="fab fa-twitter"></i>
-					<i class="fab fa-tumblr"></i>
-				</div>
-
-				<div class="copyright">
-					<h5>Copyright 2018 Travel trip | ALl rights reserved</h5>
-				</div>
-			</div>
-
-		</section>
-	</footer>
-
+	@include('layout.footer')
 
 	<!--build:js js/main.min.js -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/thanhtoan.js"></script>
+	<script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/js/thanhtoan.js"></script>
 	<!-- endbuild -->
 </body>
 </html>

@@ -5,32 +5,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Go Home Theme Front End</title>
 	<!--build:css css/styles.min.css -->
-	<link rel="stylesheet" href="assets/css/danhsachphongdat.css">
-	<link rel="stylesheet" href="assets/fonts/font-awesome/css/all.min.css">
+	<link rel="stylesheet" href="../assets/css/danhsachphongdat.css">
+	<link rel="stylesheet" href="../assets/fonts/font-awesome/css/all.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;subset=vietnamese" rel="stylesheet">
 	<!-- endbuild -->
 </head>
 <body>
 	<!-- Header -->
-	<header class="header--host">
-		<div class="container host--nav">
-			<div class="logo">
-				<h1>Travel<span>trip</span></h1>
-			</div>
-			
-			<div class="nav__top">
-				<ul>
-					<li><img src="assets/images/hanoi.png" alt=""> Đào Huy Hoàng <i class="far fa-angle-down"></i>
-						<ul>
-							<li><a href="">Profile</a></li>
-							<li><a href="">Logout</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>	
-			
-		</div>
-	</header>
+	@include('layout.header')
 	
 	<section class="host--content">
 		<div class="container container-flex">
@@ -39,8 +21,8 @@
 				<img src="assets/images/nhatrang.png" alt="">
 
 				<div class="name">
-					<h3>Đào Huy Hoàng</h3>
-					<p>hoangdhph04904@fpt.edu.vn</p>
+					<h3>{{ $user->name }}</h3>
+					<p>{{ $user->email }}</p>
 				</div>
 			</div>
 			<nav class="nav">
@@ -74,11 +56,11 @@
 
 				<tbody>
 					<tr>
-						<td><a href="">69X969</a></td>
-						<td><a href="">Homestay</a></td>
-						<td>23-10-2018</td>
-						<td>24-10-2018</td>
-						<td>1 củ năm</td>
+						<td>{{ $order->id }}</a></td>
+						<td>{{ $order->hotel->name }}</a></td>
+						<td>{{ $order->create_at }}</td>
+						<td>{{ $order->create_at }}</td>
+						<td>{{ $order->price }}</td>
 						<td>Incomplete</td>
 						<td><a class="btn">Chi tiết đặt phòng</a></td>
 					</tr>
@@ -88,10 +70,10 @@
 
 		</div>
 	</section>
-
+	@include('footer')
 	<!--build:js js/main.min.js -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/js/bootstrap.min.js"></script>
 	<!-- endbuild -->
 </body>
 </html>

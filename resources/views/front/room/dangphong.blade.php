@@ -11,38 +11,7 @@
 </head>
 <body>
 
-	<header class="header--host">
-		<div class="container host--nav">
-			<div class="logo">
-				<h1>Travel<span>trip</span></h1>
-			</div>
-			
-			<div class="nav__top">
-				<ul>
-					<li><img src="assets/images/hanoi.png" alt=""> Đào Huy Hoàng
-						<ul>
-							<li><a href="">Logout</a></li>
-							<li><a href="">Profile</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>	
-			
-		</div>
-		<div class="bg--nav">
-			<nav class="nav__primary">
-				<ul>
-					<li><a href="" class="active">Bảng thông tin</a></li>
-					<li><a href="">Lịch</a></li>
-					<li><a href="">Đặt phòng</a></li>
-					<li><a href="">Căn hộ của bạn</a></li>
-					<li><a href="">Căn hộ của bạn</a></li>
-					<li><a href="">Thanh toán</a></li>
-				</ul>
-		</nav>
-		</div>
-		
-	</header>
+	@include('layout.header')
 	
 	<!-- Content -->
 	<section class="host--content">
@@ -50,19 +19,16 @@
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs">
 		  <li class="nav-item">
-		    <a class="nav-link active" data-toggle="tab" href="#mota">Mô tả</a>
+		    <a class="nav-link active" data-toggle="tab" href="{{ route('add.room') }}">Mô tả</a>
 		  </li>
 		  <li class="nav-item">
-		    <a class="nav-link" data-toggle="tab" href="#tienich">Tiện ích</a>
+		    <a class="nav-link" data-toggle="tab" href="{{ route('convenince.room') }}">Tiện ích</a>
 		  </li>
 		  <li class="nav-item">
-		    <a class="nav-link" data-toggle="tab" href="#hinhanh">Hình ảnh</a>
+		    <a class="nav-link" data-toggle="tab" href="{{ route('image.room') }}">Hình ảnh</a>
 		  </li>
 		  <li class="nav-item">
-		    <a class="nav-link" data-toggle="tab" href="#gia">Giá cả và chính sách</a>
-		  </li>
-		  <li class="nav-item">
-		    <a class="nav-link" data-toggle="tab" href="#xacthuc">Xác thực</a>
+		    <a class="nav-link" data-toggle="tab" href="{{ route('price.room') }}">Giá cả và chính sách</a>
 		  </li>
 		</ul>
 

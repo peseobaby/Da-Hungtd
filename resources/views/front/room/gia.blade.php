@@ -31,16 +31,16 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#mota">Mô tả</a>
+            <a class="nav-link active" data-toggle="tab" href="{{ route('add.room') }}">Mô tả</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#tienich">Tiện ích</a>
+            <a class="nav-link" data-toggle="tab" href="{{ route('convenince.room') }}">Tiện ích</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#hinhanh">Hình ảnh</a>
+            <a class="nav-link" data-toggle="tab" href="{{ route('image.room') }}">Hình ảnh</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#gia">Giá cả và chính sách</a>
+            <a class="nav-link" data-toggle="tab" href="{{ route('price.room') }}">Giá cả và chính sách</a>
           </li>
         </ul>
 

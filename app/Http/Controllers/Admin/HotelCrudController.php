@@ -9,6 +9,7 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Http\Requests\StoreHotelRequest as StoreRequest;
 use App\Http\Requests\UpdateHotelRequest as UpdateRequest;
 use Backpack\CRUD\CrudPanel;
+use App\Repositories\Hotel\HotelRepository;
 
 /**
  * Class HotelCrudController
@@ -17,6 +18,12 @@ use Backpack\CRUD\CrudPanel;
  */
 class HotelCrudController extends CrudController
 {
+    private $hotel;
+    public function __construct(HotelRepository $hotel)
+    {
+        parent::__construct();
+        $this->hotel = $hotel;
+    }
     public function setup()
     {
         /*
@@ -115,4 +122,6 @@ class HotelCrudController extends CrudController
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
     }
+
+    public function 
 }
