@@ -16,6 +16,7 @@
 @stack('before_scripts')
 
 @yield('content')
+@include('front.layout.footer')
 
 @yield('after_scripts')
 @stack('after_scripts')
