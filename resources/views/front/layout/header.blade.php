@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Go Home Theme Front End</title>
     <!--build:css css/styles.min.css -->
-    <link rel="stylesheet" href="assets/css/main-core.css">
-    <link rel="stylesheet" href="assets/css/owl/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/owl/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../assets/css/main-core.css">
+    <link rel="stylesheet" href="../assets/css/owl/owl.carousel.min.css">
+    <link rel="stylesheet" href="../assets/css/owl/owl.theme.default.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;subset=vietnamese" rel="stylesheet">
     <!-- endbuild -->
 </head>
@@ -74,9 +74,9 @@
 
 
     <!--build:js js/main.min.js -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/owl.carousel.min.js"></script>
+    <script src="../assets/js/main.js"></script>
     <!-- endbuild -->
 </body>
 </html>

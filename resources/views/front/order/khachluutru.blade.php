@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đặt phòng nhanh gọn, giá rẻ</title>
     <!--build:css css/styles.min.css -->
-    <link rel="stylesheet" href="assets/css/dashbroad-host.css">
-    <link rel="stylesheet" href="assets/css/ion.rangeSlider/css/ion.rangeSlider.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css">
+    <link rel="stylesheet" href="../assets/css/dashbroad-host.css">
+    <link rel="stylesheet" href="../assets/css/ion.rangeSlider/css/ion.rangeSlider.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;subset=vietnamese" rel="stylesheet">
     <!-- endbuild -->
 </head>
@@ -50,19 +50,19 @@
 
                         <!-- Tab contents -->
                         <div class="tab-content">
-                          <div class="tab-pane active" id="khachnhan">
-                            @foreach($users as $user)
+                          <div class="tab-pane active" id="luutru">
+                            @foreach($orders as $order)
                             <div class="item">
                                 <div class="left">
                                     <div class="image">
-                                        <img src="{{ $user->avatar }}" alt="">
+                                        <img src="{{ $order->user->cover }}" alt="">
                                     </div>
 
                                     <div class="detail">
-                                        <a href=""><h1>{{ $user->name }}</h1></a>
+                                        <a href=""><h1>{{ $order->user->name }}</h1></a>
                                         
                                         <div class="day-picker">
-                                            <span>May 24 - May 25 &#8226; Requested </span>
+                                            <span>{{ $order->create_at }} </span>
                                         </div>
 
                                     </div>
@@ -70,7 +70,7 @@
 
                                 <div class="right">
                                     <div class="end">
-                                        <p>1 người &#8226; 1 ngày &#8226; <span class="price">{{ $room->price }}</span></p>
+                                        <p>1 người &#8226; 1 ngày &#8226; <span class="price">{{ $order->price }}</span></p>
 
                                         <div class="button-control">
                                             <button class="btn btn-success" >Approve</button>
@@ -93,19 +93,19 @@
                     <div class="checker">
                         <!-- Tab contents -->
                         <div class="tab-content">
-                          <div class="tab-pane active" id="khachnhan">
-                            @foreach($users as $user)
+                          <div class="tab-pane active" id="khachtra">
+                            @foreach($orders as $order)
                             <div class="item">
                                 <div class="left">
                                     <div class="image">
-                                        <img src="{{ $user->avatar }}" alt="">
+                                        <img src="{{ $order->user->avatar }}" alt="">
                                     </div>
 
                                     <div class="detail">
-                                        <a href=""><h1>{{ $user->name }}</h1></a>
+                                        <a href=""><h1>{{ $order->user->name }}</h1></a>
                                         
                                         <div class="day-picker">
-                                            <span>May 24 - May 25 &#8226; Requested </span>
+                                            <span>{{ $order->create_at }} &#8226; Requested </span>
                                         </div>
 
                                     </div>
@@ -113,7 +113,7 @@
 
                                 <div class="right">
                                     <div class="end">
-                                        <p>1 người &#8226; 1 ngày &#8226; <span class="price">{{ $room->price }}</span></p>
+                                        <p>1 người &#8226; 1 ngày &#8226; <span class="price">{{ $order->price }}</span></p>
 
                                         <div class="button-control">
                                             <button class="btn btn-success" >Approve</button>
@@ -154,13 +154,13 @@
     </section>
 
     <!-- Footer -->
-    @include('footer')
+    @include('layout.footer')
 
     <!--build:js js/main.min.js -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/moment.min.js"></script>
-    <script src="assets/js/daterangepicker.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/moment.min.js"></script>
+    <script src="../assets/js/daterangepicker.js"></script>
     <!-- endbuild -->
     <script>
         $(function() {
