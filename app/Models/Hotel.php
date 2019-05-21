@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
+use ViralsBackpack\BackPackImageUpload\Traits\HasImages;
 
 class Hotel extends Model
 {
     use CrudTrait;
+    use HasImages;
 
     /*
     |--------------------------------------------------------------------------

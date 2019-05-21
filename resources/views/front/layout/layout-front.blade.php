@@ -4,13 +4,11 @@
     @include('front.layout.head')
 </head>
 <body>
-
+@if (Session::has('message'))
+    <div class="alert alert-error" style="position: absolute; width: 100px; height: 50px;
+    background: #39c049; color: #ffffff; font-size: 1.2em" id="message_hide">{{ \Session::get('message') }}</div>
+ @endif
 @yield('header')
-
-<!-- Main content -->
-@yield('content')
-<!-- /.content -->
-
 
 @yield('before_scripts')
 @stack('before_scripts')

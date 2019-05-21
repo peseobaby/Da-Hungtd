@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::group([
+    'prefix'     => 'front',
+    'namespace'  => 'Front',
+], function () { // custom admin routes
+    Route::get('hotel', 'HotelController@index')->name('front.hotel.index');
+    Route::post('hotel', 'HotelController@store')->name('front.hotel.store');
+});

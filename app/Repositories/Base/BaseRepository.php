@@ -9,7 +9,7 @@ use Illuminate\Support\Collection;
 class BaseRepository implements BaseRepositoryInterface
 {
     protected $model;
-
+    protected $modelClass;
     /**
      * BaseRepository constructor.
      * @param Model $model
@@ -102,5 +102,42 @@ class BaseRepository implements BaseRepositoryInterface
     public function delete() : bool
     {
         return $this->model->delete();
+    }
+
+
+
+    public function findByAttrFirst($attr = null, $value)
+    {
+        return !is_null($attr) ? $this->modelClass::where($attr, $value)->first() : null;
+    }
+
+    public function createModel($data = [])
+    {
+        return $this->modelClass::create($data)->fresh();
+    }
+
+    public function pluckAttrId($attr = null)
+    {
+        return !is_null($attr) ? $this->modelClass::pluck($attr, 'id')->all() : collect([]);
+    }
+
+    public function deleteByAttr($attr = null, $value)
+    {
+        return !is_null($attr) ? $this->modelClass::where($attr, $value)->delete() : false;
+    }
+
+    public function findByAttrInArray($attr = null, $array = [])
+    {
+        return !is_null($attr) ? $this->modelClass::whereIn($attr, $array)->get() : collect([]);
+    }
+
+    public function updateOrCreateModel($data = null)
+    {
+        return !is_null($data) ? $this->modelClass::updateOrCreate($data) : false;
+    }
+
+    public function setModel($model)
+    {
+        $this->model = $model;
     }
 }

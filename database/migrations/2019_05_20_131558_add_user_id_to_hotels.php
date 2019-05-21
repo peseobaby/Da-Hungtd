@@ -14,7 +14,7 @@ class AddUserIdToHotels extends Migration
     public function up()
     {
         Schema::table('hotels', function (Blueprint $table) {
-            $table->integer('user_id');
+            $table->unsignedInteger('user_id')->nullable();
         });
     }
 
