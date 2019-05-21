@@ -1,20 +1,20 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đặt phòng nhanh gọn, giá rẻ</title>
+<@extends('front.layout.layout-front')
+@section('title')
+    <title>Danh sách khách ở qua đêm</title>
+@endsection
+@section('before_scripts')
     <!--build:css css/styles.min.css -->
     <link rel="stylesheet" href="../assets/css/dashbroad-host.css">
     <link rel="stylesheet" href="../assets/css/ion.rangeSlider/css/ion.rangeSlider.css">
     <link rel="stylesheet" href="../assets/fonts/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;subset=vietnamese" rel="stylesheet">
-    <!-- endbuild -->
-</head>
+@endsection
 <body>
-
-   @include('header')
+@section('header')
+        @include('front.layout.header-host')
+    @endsection
+    @section('content')
     <!-- Content -->
     <section class="container">
         <button class="btn create" href="{{ route('add.room') }}">Thêm căn hộ mới</button>
@@ -152,10 +152,9 @@
         </div>
 
     </section>
+    @endsection
 
-    <!-- Footer -->
-    @include('layout.footer')
-
+    @section('after_scripts')
     <!--build:js js/main.min.js -->
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
@@ -173,6 +172,6 @@
           });
         });
     </script>
+    @endsection
 
 </body>
-</html>

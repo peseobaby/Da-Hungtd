@@ -1,19 +1,21 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Go Home Theme Front End</title>
+@extends('front.layout.layout-front')
+@section('title')
+    <title>Cập nhật thông tin</title>
+@endsection
+@section('before_scripts')
     <!--build:css css/styles.min.css -->
     <link rel="stylesheet" href="../assets/css/hoso.css">
     <link rel="stylesheet" href="../assets/fonts/font-awesome/css/all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;subset=vietnamese" rel="stylesheet">
     <!-- endbuild -->
+@endsection
 </head>
 <body>
     <!-- Header -->
-    @include('header')
-    
+    @section('header')
+        @include('front.layout.header-host')
+    @endsection
+    @section('content')
     <section class="host--content">
         <div class="container container-flex">
             <aside>
@@ -105,14 +107,13 @@
             </article>
         </div>
     </section>
+    @endsection
 
-        <!-- Footer -->
-    @include('footer')
-
+@section('after_scripts')
     <!--build:js js/main.min.js -->
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
     <script src="../assets/js/dangphongchu.js"></script>
     <!-- endbuild -->
+@endsection
 </body>
-</html>
