@@ -123,5 +123,4 @@ class HotelCrudController extends CrudController
         return $redirect_location;
     }
 
-    public function 
 }

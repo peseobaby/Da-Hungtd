@@ -19,4 +19,5 @@ Route::group([
     Route::post('address/get-city', 'AddressCrudController@getCity')->name('crud.address.get-city');
     CRUD::resource('event', 'EventCrudController');
     CRUD::resource('order', 'OrderCrudController');
+    CRUD::resource('user', 'UserCrudController');
 }); // this should be the absolute last line of this file
