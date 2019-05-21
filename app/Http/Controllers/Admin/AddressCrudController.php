@@ -28,7 +28,6 @@ class AddressCrudController extends CrudController
         $this->crud->setModel('App\Models\Address');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/address');
         $this->crud->setEntityNameStrings('address', 'addresses');
-
         /*
         |--------------------------------------------------------------------------
         | CrudPanel Configuration

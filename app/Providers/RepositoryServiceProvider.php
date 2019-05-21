@@ -9,6 +9,8 @@ use App\Repositories\Event\EventRepository;
 use App\Repositories\Event\EventRepositoryInterface;
 use App\Repositories\Hotel\HotelRepository;
 use App\Repositories\Hotel\HotelRepositoryInterface;
+use App\Repositories\Image\ImageRepository;
+use App\Repositories\Image\ImageRepositoryInterface;
 use App\Repositories\Order\OrderRepository;
 use App\Repositories\Order\OrderRepositoryInterface;
 use App\Repositories\Room\RoomRepository;
@@ -75,6 +77,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             RoomHasConvenienceRepositoryInterface::class,
             RoomHasConvenienceRepository::class
+        );
+
+        $this->app->bind(
+            ImageRepositoryInterface::class,
+            ImageRepository::class
         );
     }
 }

@@ -14,5 +14,42 @@
 <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+<style>
+    .bg--nav {
+        height: 50px;
+    }
+    .error{
+        color: red;
+    }
+    #message_hide {
+        -moz-animation: message_cssAnimation 0s ease-in 2s forwards;
+        /* Firefox */
+        -webkit-animation: message_cssAnimation 0s ease-in 2s forwards;
+        /* Safari and Chrome */
+        -o-animation: message_cssAnimation 0s ease-in 2s forwards;
+        /* Opera */
+        animation: message_cssAnimation 0s ease-in 2s forwards;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+    }
+    @keyframes message_cssAnimation {
+        to {
+            /*width:0;*/
+            /*height:0;*/
+            /*overflow:hidden;*/
+            visibility:hidden;
+
+
+        }
+    }
+    @-webkit-keyframes message_cssAnimation {
+        to {
+            /*width:0;*/
+            /*height:0;*/
+            visibility:hidden;
+
+        }
+    }
+</style>
 @yield('after_styles')
 @stack('after_styles')
