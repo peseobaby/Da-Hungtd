@@ -4,8 +4,8 @@
 @endsection
 @section('before_scripts')
     <!--build:css css/styles.min.css -->
-    <link rel="stylesheet" href="../assets/css/hoso.css">
-    <link rel="stylesheet" href="../assets/fonts/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/hoso.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/fonts/font-awesome/css/all.min.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;subset=vietnamese" rel="stylesheet">
     <!-- endbuild -->
 @endsection
@@ -111,9 +111,9 @@
 
 @section('after_scripts')
     <!--build:js js/main.min.js -->
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/dangphongchu.js"></script>
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/dangphongchu.js') }}"></script>
     <!-- endbuild -->
 @endsection
 </body>

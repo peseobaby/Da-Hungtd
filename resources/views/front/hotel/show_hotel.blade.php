@@ -4,7 +4,7 @@
     <!--build:css css/styles.min.css -->
 @endsection
 @section('before_scripts')
-    <link rel="stylesheet" href="../assets/css/dangphongchu.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/dangphongchu.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;subset=vietnamese" rel="stylesheet">
 @endsection
 
@@ -71,8 +71,8 @@
 
     @section('after_scripts')
         <!--build:js js/main.min.js -->
-        <script src="../assets/js/owl.carousel.min.js"></script>
-        <script src="../assets/js/dangphongchu.js"></script>
+        <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('assets/js/dangphongchu.js') }}"></script>
         <!-- endbuild -->
     @endsection
 </body>

@@ -1,31 +1,20 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Go Home Theme Front End</title>
+@extends('front.layout.layout-front')
+@section('title')
+    <title>Hình ảnh phòng</title>
+@endsection
+@section('before_scripts')
     <!--build:css css/styles.min.css -->
-    <link rel="stylesheet" href="assets/css/dangphongchu.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/dangphongchu.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;subset=vietnamese" rel="stylesheet">
+@endsection
     <!-- endbuild -->
-</head>
 <body>
 
-@include('header')
-        
-    
-    <!-- Content -->
-    <div class="bg--nav">
-        <nav class="nav__primary">
-            <ul>
-                <li><a href="" class="active">Bảng thông tin</a></li>
-                <li><a href="">Lịch</a></li>
-                <li><a href="">Đặt phòng</a></li>
-                <li><a href="">Căn hộ của bạn</a></li>
-                <li><a href="">Thanh toán</a></li>
-            </ul>
-        </nav>
-    </div>
+@section('header')
+    @include('front.layout.header-host')
+@endsection
+@section('content')
+   
     <section class="host--content">
         <h2 class="title">Đăng phòng</h2>
         <!-- Nav tabs -->
@@ -65,16 +54,14 @@
             <button class="btn" disabled="">Lưu</button>
         </div>
     </section>
+@endsection
 
-    <!-- Footer -->
-    @include('footer')
-
-
+    @section('after_scripts')
     <!--build:js js/main.min.js -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/dangphongchu.js"></script>
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/js/dangphongchu.js') }}"></script>
     <!-- endbuild -->
+    @endsection
 </body>
-</html>
