@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 <div class="btn-control">
-                    <button class="btn" href="{{ route('all.room') }}">Danh sách phòng của khách sạn</button>
+                    <button class="btn" href="{{ route('all.room', $hotel->id) }}">Danh sách phòng của khách sạn</button>
                 </div>
             </form>
 

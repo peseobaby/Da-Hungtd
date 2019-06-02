@@ -45,4 +45,34 @@ class HotelController extends Controller
 
         return redirect()->back()->with(['message' => 'Create hotel Done']);
     }
+
+    public function edit($id)
+    {
+        $data['provinces'] = getAllProvides();
+        $data['cities'] = getAllCities();
+        $hotel = $this->hotelRepo->find($id);
+        return view('front.hotel.create_hotel', $hotel);
+    }
+
+    public function update(StoreHotelRequest $request, $id)
+    {
+        $address = $this->addressRepo->update([
+            'name' => $request->address,
+            'city' => $request->city_id,
+            'provide' => $request->province_id,
+        ]);
+        //create hotel and sync image
+        $this->hotelRepo->update([
+            'name' => $request->name,
+            'address_id' => $address->id
+        ])->updateImage($request->image);
+
+        return redirect()->back()->with(['message' => 'Update hotel Done']);
+    }
+
+    public function show($id)
+    {
+        $hotel = $this->hotelRepo->find($id);
+        return view('front.hotel.create_hotel', $hotel);
+    }
 }

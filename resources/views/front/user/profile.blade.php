@@ -29,8 +29,8 @@
                 </div>
                 <nav class="nav">
                     <ul>
-                        <li><a href="{{ route('all.room') }}" class="active">Quản lý phòng</a></li>
-                        <li><a href="{{ route('profile') }}">Hồ sơ cá nhân</a></li>
+                        <li><a href="{{ route('front.hotel.index', $user->id) }}" class="active">Quản lý phòng</a></li>
+                        <li><a href="{{ route('user.show') }}">Hồ sơ cá nhân</a></li>
                         <li><a href="">Thay đổi mật khẩu</a></li>
                         <li><a href="{{ route('logout') }}">Đăng xuất</a></li>
                     </ul>

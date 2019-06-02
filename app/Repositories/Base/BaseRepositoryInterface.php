@@ -14,7 +14,7 @@ interface BaseRepositoryInterface
      * @param array $attributes
      * @return bool
      */
-    public function update(array $attributes) : bool;
+    public function update(array $attributes);
 
     /**
      * @param array $columns
@@ -57,5 +57,5 @@ interface BaseRepositoryInterface
     /**
      * @return bool
      */
-    public function delete() : bool;
+    public function delete();
 }

@@ -16,4 +16,24 @@ class RoomRepository extends BaseRepository implements RoomRepositoryInterface
         parent::__construct($model);
         $this->model = $model;
     }
+
+    public function getRooms($id)
+    {
+        return $rooms = $this->model->where('hotel_id', $id)->get();
+    }
+
+    public function getRoomsActive($id)
+    {
+        return $rooms = $this->model->where('hotel_id', $id)->where('active', 1)->get();
+    }
+
+    public function getRoomUnactive($id)
+    {
+        return $rooms = $this->model->where('hotel_id', $id)->where('active', 0)->get();
+    }
+
+    public function store($data)
+    {
+        return $this->model->create($data);
+    }
 }

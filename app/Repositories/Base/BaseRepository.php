@@ -32,7 +32,7 @@ class BaseRepository implements BaseRepositoryInterface
      * @param array $data
      * @return bool
      */
-    public function update(array $data) : bool
+    public function update(array $data)
     {
         return $this->model->update($data);
     }

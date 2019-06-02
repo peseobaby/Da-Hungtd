@@ -100,7 +100,7 @@
                 <label class="col-form-label" for="" class="col-auto">$ / đêm</label>
             </div>
 
-            {{-- <div class="form-group d-flex">
+            <div class="form-group d-flex">
                 <label class="col-form-label" for="loaicanho">Tỉnh</label>
 
                 <div class="input">
@@ -118,7 +118,7 @@
                         <option value="">Gia Lâm</option>
                     </select>
                 </div>
-            </div> --}}
+            </div>
             <div class="btn-control">
                 <button class="btn submit">Tiếp</button>
             </div>
