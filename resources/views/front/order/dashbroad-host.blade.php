@@ -4,10 +4,10 @@
 @endsection
 @section('before_scripts')
     <!--build:css css/styles.min.css -->
-    <link rel="stylesheet" href="../assets/css/dashbroad-host.css">
-    <link rel="stylesheet" href="../assets/css/ion.rangeSlider/css/ion.rangeSlider.css">
-    <link rel="stylesheet" href="../assets/fonts/font-awesome/css/all.min.css">
-    <link rel="stylesheet" href="../assets/css/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/dashbroad-host.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/ion.rangeSlider/css/ion.rangeSlider.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/fonts/font-awesome/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;subset=vietnamese" rel="stylesheet">
     <!-- endbuild -->
 </head>
@@ -157,10 +157,10 @@
 
     @section('after_scripts')
     <!--build:js js/main.min.js -->
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/moment.min.js"></script>
-    <script src="../assets/js/daterangepicker.js"></script>
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/js/daterangepicker.js') }}"></script>
     <!-- endbuild -->
     <script>
         $(function() {

@@ -4,11 +4,12 @@
 @endsection
 @section('before_styles')
 <!--build:css css/styles.min.css -->
-<link rel="stylesheet" href="../assets/css/search.css">
-<link rel="stylesheet" href="../assets/css/owl/owl.carousel.min.css">
-<link rel="stylesheet" href="../assets/css/ion.rangeSlider/css/ion.rangeSlider.css">
-<link rel="stylesheet" href="../assets/fonts/font-awesome/css/all.min.css">
-<link rel="stylesheet" href="../assets/css/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css">
+{{ asset('assets/css/dangphongchu.css') }}
+<link rel="stylesheet" href="{{ asset('assets/css/search.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/owl/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/ion.rangeSlider/css/ion.rangeSlider.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/fonts/font-awesome/css/all.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css') }}">
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;subset=vietnamese" rel="stylesheet">
 
 @endsection
@@ -371,13 +372,13 @@
 
     @section('after_scripts')
 <!--build:js js/main.min.js -->
-        <script src="../assets/js/jquery.min.js"></script>
-        <script src="../assets/js/bootstrap.min.js"></script>
-        <script src="../assets/js/owl.carousel.min.js"></script>
-        <script src="../assets/js/moment.min.js"></script>
-        <script src="../assets/js/daterangepicker.js"></script>
-        <script src="../assets/js/ion.rangeSlider.min.js"></script>
-        <script src="../assets/js/main.js"></script>
+        <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('assets/js/moment.min.js') }}"></script>
+        <script src="{{ asset('assets/js/daterangepicker.js') }}"></script>
+        <script src="{{ asset('assets/js/ion.rangeSlider.min.js') }}"></script>
+        <script src="{{ asset('assets/js/main.js') }}"></script>
     @endsection
 <!-- endbuild -->
 </body>

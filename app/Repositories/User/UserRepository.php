@@ -16,4 +16,14 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         parent::__construct($model);
         $this->model = $model;
     }
+
+    public function show($id)
+    {
+        return $this->model->find($id);
+    }
+
+    public function store($data, $id)
+    {
+        return $this->model->find($id)->store($data);
+    }
 }

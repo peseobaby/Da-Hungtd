@@ -1,18 +1,17 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Go Home Theme Front End</title>
-    <!--build:css css/styles.min.css -->
-    <link rel="stylesheet" href="assets/css/danhsachphongdang.css">
+@extends('front.layout.layout-front')
+@section('title')
+    <title>Danh sách phòng đã kích hoạt</title>
+@endsection
+@section('before_scripts')
+    <link rel="stylesheet" href="{{ asset('assets/css/danhsachphongdang.css') }}') }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;subset=vietnamese" rel="stylesheet">
     <!-- endbuild -->
-</head>
+@endsection
 <body>
-    <!-- Header -->
-    @include('header')
-    
+    @section('header')
+        @include('front.layout.header-host')
+    @endsection
+    @section('content')
     <section class="host--content">
         <div class="container-center">
             <button class="btn create" href="{{ route('add.room') }}">Thêm căn hộ mới</button>
@@ -71,13 +70,12 @@
             </div>
         
     </section>
+    @endsection
 
         <!-- Footer -->
-    @include('footer');
-
+    @section('after_scripts')
     <!--build:js js/main.min.js -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <!-- endbuild -->
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    @endsection
 </body>
-</html>

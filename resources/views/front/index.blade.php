@@ -1,21 +1,22 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Go Home Theme Front End</title>
-<!--build:css css/styles.min.css -->
-<link rel="stylesheet" href="assets/css/main.css">
-<link rel="stylesheet" href="assets/css/owl/owl.carousel.min.css">
-<link rel="stylesheet" href="assets/css/ion.rangeSlider/css/ion.rangeSlider.css">
-<link rel="stylesheet" href="assets/fonts/font-awesome/css/all.min.css">
-<link rel="stylesheet" href="assets/css/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css">
+@extends('front.layout.layout-front')
+@section('title')
+    <title>Trang chủ</title>
+@endsection
+@section('before_scripts')
+<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/owl/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/ion.rangeSlider/css/ion.rangeSlider.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/fonts/font-awesome/css/all.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css') }}">
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;subset=vietnamese" rel="stylesheet">
-<!-- endbuild -->
-</head>
+@endsection
 <body>
-@include('header')
-<!-- Banner -->
+
+@section('header')
+    @include('front.layout.header-primary')
+@endsection
+
+@section('content')
 <section class="banner">
     <div class="search">
         <!-- Search Tab -->
@@ -212,19 +213,17 @@
     </div>
     @endforeach
 </section>
+@endsection
 
-
-<!-- Footer -->
-@include('footer');
-
+@section('after_scripts')
 <!--build:js js/main.min.js -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-<script src="assets/js/moment.min.js"></script>
-<script src="assets/js/daterangepicker.js"></script>
-<script src="assets/js/ion.rangeSlider.min.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('assets/js/moment.min.js') }}"></script>
+<script src="{{ asset('assets/js/daterangepicker.js') }}"></script>
+<script src="{{ asset('assets/js/ion.rangeSlider.min.js') }}"></script>
+<script src="{{ asset('assets/js/main.js') }}"></script>
 <!-- endbuild -->
+@endsection
 </body>
-</html>
