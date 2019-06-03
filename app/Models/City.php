@@ -4,23 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
-use Spatie\Permission\Traits\HasRoles;
 
-class User extends Model
+class City extends Model
 {
     use CrudTrait;
-    use HasRoles;
+
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'users';
+    protected $table = 'cities';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [];
+    protected $fillable = ['name', 'provide_id'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -35,7 +34,10 @@ class User extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function provide()
+    {
+        return $this->belongsTo(Provide::class);
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

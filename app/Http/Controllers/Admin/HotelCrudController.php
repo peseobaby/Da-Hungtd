@@ -73,6 +73,15 @@ class HotelCrudController extends CrudController
            'type' => 'text'
         ]);
 
+        $this->crud->addColumn([
+            'name' => 'image', // The db column name
+            'label' => "image", // Table column heading
+            'type' => 'image_custom',
+            'height' => '50px',
+            'closure' => function($entry) {
+                return @$entry->images->first()->url;
+            }
+        ]);
     }
 
     private function setupFields()
@@ -98,6 +107,12 @@ class HotelCrudController extends CrudController
             'label' => 'Rating',
             'type' => 'number',
         ]);
+
+        $this->crud->addField([
+            'name' => 'images',
+            'label' => 'Images',
+            'type' => 'virals_browse_image',
+        ]);
     }
 
     private function setupFilter()
@@ -107,19 +122,15 @@ class HotelCrudController extends CrudController
 
     public function store(StoreRequest $request)
     {
-        // your additional operations before save here
         $redirect_location = parent::storeCrud($request);
-        // your additional operations after save here
-        // use $this->data['entry'] or $this->crud->entry
+        $this->crud->entry->createImage($request->images);
         return $redirect_location;
     }
 
     public function update(UpdateRequest $request)
     {
-        // your additional operations before save here
         $redirect_location = parent::updateCrud($request);
-        // your additional operations after save here
-        // use $this->data['entry'] or $this->crud->entry
+        $this->crud->entry->updateImage($request->images);
         return $redirect_location;
     }
 

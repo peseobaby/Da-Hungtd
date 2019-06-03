@@ -22,7 +22,7 @@ class UserController extends Controller
             "cover" => $request->cover,
             "address" => $request->address,
             "cmnd" => $request->cmnd,
-        ]
+        ];
         $user = User::find($id)->update($arr);
         return redirect()->route('user.show', $id)->with('alert', 'Đã cập nhật');
     }

@@ -15,4 +15,18 @@ return [
             ['id' => 5, 'name' => 'Kiến Thụy'],
         ]
     ],
+    [
+        'name' => 'Nam Định',
+        'cities' => [
+            ['id' => 6, 'name' => 'Xuân Trường'],
+            ['id' => 7, 'name' => 'Phủ Lý'],
+        ]
+    ],
+    [
+        'name' => 'Hà Nội',
+        'cities' => [
+            ['id' => 8, 'name' => 'Hai Bà Trưng'],
+            ['id' => 9, 'name' => 'Thanh Xuân'],
+        ]
+    ],
 ];

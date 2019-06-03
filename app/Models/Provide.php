@@ -4,23 +4,24 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
-use Spatie\Permission\Traits\HasRoles;
+use ViralsBackpack\BackPackImageUpload\Traits\HasImages;
 
-class User extends Model
+class Provide extends Model
 {
     use CrudTrait;
-    use HasRoles;
+    use HasImages;
+
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'users';
+    protected $table = 'provides';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [];
+    protected $fillable = ['name'];
     // protected $hidden = [];
     // protected $dates = [];
 

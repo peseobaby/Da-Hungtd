@@ -40,6 +40,11 @@ class Hotel extends Model
     {
         return $this->belongsTo(Address::class, 'address_id');
     }
+
+    public function events()
+    {
+        return $this->belongsToMany(Event::class, 'event_hotels');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

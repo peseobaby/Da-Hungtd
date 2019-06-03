@@ -20,4 +20,6 @@ Route::group([
     CRUD::resource('event', 'EventCrudController');
     CRUD::resource('order', 'OrderCrudController');
     CRUD::resource('user', 'UserCrudController');
+    CRUD::resource('provide', 'ProvideCrudController');
+    CRUD::resource('city', 'CityCrudController');
 }); // this should be the absolute last line of this file

@@ -11,23 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::group([
-    'prefix'     => 'front',
     'namespace'  => 'Front',
 ], function () { // custom admin routes
+    Route::get('/', 'HomeController@index')->name('front.home.index');
     Route::get('hotel', 'HotelController@index')->name('front.hotel.index');
     Route::post('hotel', 'HotelController@store')->name('front.hotel.store');
-<<<<<<< Updated upstream
     Route::get('hotel/edit/{id}', 'HotelController@edit')->name('front.hotel.edit');
     Route::post('hotel/update/{id}', 'HotelController@update')->name('front.hotel.update');
     Route::get('room/{id}', 'RoomController@index')->name('all.room');
     Route::get('user/{id}', 'UserController@show')->name('show.user');
     Route::get('user/edit/{id}', 'UserController@edit')->name('edit.user');
     Route::post('user/update/{id}', 'UserController@store')->name('store.user');
-=======
     Route::get('hotel/search', 'HotelController@search')->name('front.hotel.search');
->>>>>>> Stashed changes
+
 });
