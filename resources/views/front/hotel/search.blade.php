@@ -1,17 +1,15 @@
 @extends('front.layout.layout-front')
 @section('title')
-<title>Tìm kiếm phòng trọ</title>
+    Tìm kiếm phòng trọ
 @endsection
+
 @section('before_styles')
 <!--build:css css/styles.min.css -->
-{{ asset('assets/css/dangphongchu.css') }}
 <link rel="stylesheet" href="{{ asset('assets/css/search.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/css/owl/owl.carousel.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/css/ion.rangeSlider/css/ion.rangeSlider.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/fonts/font-awesome/css/all.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/css/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css') }}">
-<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;subset=vietnamese" rel="stylesheet">
-
+{{--<link rel="stylesheet" href="{{ asset('assets/css/owl/owl.carousel.min.css') }}">--}}
+{{--<link rel="stylesheet" href="{{ asset('assets/css/ion.rangeSlider/css/ion.rangeSlider.css') }}">--}}
+{{--<link rel="stylesheet" href="{{ asset('assets/fonts/font-awesome/css/all.min.css') }}">--}}
+{{--<link rel="stylesheet" href="{{ asset('assets/css/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css') }}">--}}
 @endsection
 <body>
     @section('header')
@@ -302,12 +300,15 @@
                 <div class="featured--post">
                     <!-- Post -->
                     <div class="center--box">
+                        @php
+                            $rooms = [];
+                        @endphp
                         @foreach($rooms as $room)
                         <div class="post">
                             <div class="post__detail item">
                                 <div class="img__box">
                                     <a href="">
-                                        <img src="assets/images/homestay-1.jpg" alt="">
+                                        <img src="{{ asset('assets/images/homestay-1.jpg') }}" alt="">
                                     </a>
                                 </div>
 
