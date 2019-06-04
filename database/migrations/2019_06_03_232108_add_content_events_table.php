@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCoverToUsers extends Migration
+class AddContentEventsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddCoverToUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('cover');
+        Schema::table('events', function (Blueprint $table) {
+            $table->longText('content')->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class AddCoverToUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('cover');
+        Schema::table('events', function (Blueprint $table) {
+            $table->dropColumn('content');
         });
     }
 }

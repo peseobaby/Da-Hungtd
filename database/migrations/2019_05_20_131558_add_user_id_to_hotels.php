@@ -15,6 +15,7 @@ class AddUserIdToHotels extends Migration
     {
         Schema::table('hotels', function (Blueprint $table) {
             $table->unsignedInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

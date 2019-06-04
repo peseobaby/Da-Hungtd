@@ -16,7 +16,7 @@ class CreateRoomsTable extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable();
-            $table->unsignedInteger('type')->nullable();
+            $table->unsignedInteger('type_id')->nullable();
             $table->foreign('type_id')->references('id')->on('room_types');
             $table->unsignedTinyInteger('capacity')->nullable();
             $table->unsignedTinyInteger('num_bed_room')->nullable();

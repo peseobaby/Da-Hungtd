@@ -1,14 +1,9 @@
 @extends('front.layout.layout-front')
 @section('title')
-    <title>Trang chủ</title>
+    Trang chủ
 @endsection
 @section('before_scripts')
 <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/css/owl/owl.carousel.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/css/ion.rangeSlider/css/ion.rangeSlider.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/fonts/font-awesome/css/all.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/css/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css') }}">
-<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;subset=vietnamese" rel="stylesheet">
 @endsection
 <body>
 
@@ -85,9 +80,6 @@
                             </div>
                     </div>
             </div>
-
-
-
             </div>
         </div>
     </div>
@@ -99,119 +91,117 @@
 <!-- Homestay post -->
 <section class="featured">
     <h2>Featured Homestay Deals</h2>
-
-    @foreach($rooms as $room)
-    <div class="featured--post">
-        <div class="owl-carousel owl-theme" id="homestays">
-            <div class="post">
-                <div class="post__detail item">
-                    <div class="img__box">
-                        <a href="">
-                            <img src="assets/images/homestay-1.jpg" alt="">
-                        </a>
-                    </div>
-
-                    <div class="flex-row">
-                        <div class="detail-info">
-                            <div class="title">
-                                <a href="">
-                                    <h4>{{$room->name}}</h4>
-                                </a>
-                                
-                                <span class="price">{{$room->price}}<span> vnd / 1 đêm</span></span>
-                            </div>
-
-                            <div class="descripton">
-                                <p class="location">{{-- {{$hotel->address->city->name}} / {{$hotel->address->provide->name}} --}}</p>
-                                <p class="control">
-                                    @foreach($conveniences as $convenience)
-                                    {{ $convenience->name }} / 
-                                    @endforeach
-                                </p>
-                            </div>
-
-                            <div class="icon">
-                                <i class="fas fa-dumbbell"></i>
-                                <i class="far fa-swimmer"></i>
-                                <i class="fas fa-coffee"></i>
-                            </div>
+        <div class="featured--post">
+            <div class="owl-carousel owl-theme" id="homestays">
+                @foreach($rooms as $room)
+                <div class="post">
+                    <div class="post__detail item">
+                        <div class="img__box">
+                            <a href="">
+                                <img src="{{ asset(@$room->images->first()->url) }}" alt="">
+                            </a>
                         </div>
 
+                        <div class="flex-row">
+                            <div class="detail-info">
+                                <div class="title">
+                                    <a href="">
+                                        <h4>{{$room->name}}</h4>
+                                    </a>
 
-                        <div class="detail-function">
-                            <div class="button-control">
-                                <a href="">View Details</a>
+                                    <span class="price">{{$room->price}}<span> $ </span></span>
+                                </div>
+
+                                <div class="descripton">
+                                    <p class="location">{{-- {{$hotel->address->city->name}} / {{$hotel->address->provide->name}} --}}</p>
+                                    <p class="control">
+                                        @foreach($room->getAllConvenience() as $convenience)
+                                            {{ $convenience->name }} /
+                                        @endforeach
+                                    </p>
+                                </div>
+
+                                <div class="icon">
+                                    <i class="fas fa-dumbbell"></i>
+                                    <i class="far fa-swimmer"></i>
+                                    <i class="fas fa-coffee"></i>
+                                </div>
                             </div>
 
+
+                            <div class="detail-function">
+                                <div class="button-control">
+                                    <a href="#">View Details</a>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
+
                 </div>
-
+                @endforeach
             </div>
         </div>
-    </div>
-    @endforeach
 </section>
 
 <!-- Localtion -->
 <section class="featured">
     <h2>Featured Location</h2>
-    @foreach($provides as $provide)
     <div class="featured--location">
-        <div class="grid grid-2-column">
-            <div class="item">
-                <a href="#">
-                    <img src="assets/images/hanoi.png" alt="">
+        <div class="row" style="width: 100%">
+            @foreach($provides as $provide)
+            <div class="col-4">
+                <div class="item">
+                    <a href="#">
+                        <img src="{{ asset(@$provide->images->first()->url) }}" alt="">
 
-                    <div class="item-position">
-                        <div class="middle">
-                            <div class="place-name">
-                                <h4>{{ $provide->name }}</h4>
-                                <span>&nbsp;</span>
-                            </div>
+                        <div class="item-position">
+                            <div class="middle">
+                                <div class="place-name">
+                                    <h4>{{ $provide->name }}</h4>
+                                    <span>&nbsp;</span>
+                                </div>
 
-                            <div class="place-content">
-                                <p class="info"><i class="far fa-search"></i>1000 homestay in {{ $provide->name }}</p>
+                                <div class="place-content">
+                                    <p class="info"><i class="far fa-search"></i>1000 homestay in {{ $provide->name }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </div>
+            @endforeach
         </div>
     </div>
-    @endforeach
 </section>
 
 
 <!-- News -->
 <section class="featured">
     <h2>Featured Event</h2>
-    @foreach($events as $event)
     <div class="featured--news">
         <div class="owl-carousel owl-theme" id="news">
-            <div class="item odd">
-                <div class="item--img">
-                    <a href="#">
-                        <img src="assets/images/homestay-2.jpg" alt="">
-                    </a>
-                </div>
+            @foreach($events as $event)
+                <div class="item odd">
+                    <div class="item--img">
+                        <a href="#">
+                            <img src="{{ asset(@$event->images->first()->url) }}" alt="">
+                        </a>
+                    </div>
 
-                <div class="item--content">
-                    <a href="">
-                        <h3 class="title">{{ $event->title }}</h3>
-                    </a>
-                    
-
-                    <p>{{ $event->slug }}</p>
-
-                    <div class="item--button">
-                        <a href="">Chi tiết</a>
+                    <div class="item--content">
+                        <a href="">
+                            <h3 class="title">{{ $event->name }}</h3>
+                        </a>
+                        <p>{{ $event->discount }}</p>
+                        <div class="item--button">
+                            <a href="">Chi tiết</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
-    @endforeach
 </section>
 @endsection
 

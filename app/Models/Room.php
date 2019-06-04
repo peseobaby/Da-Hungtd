@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 use App\Models\Convenience;
+use ViralsBackpack\BackPackImageUpload\Traits\HasImages;
 
 class Room extends Model
 {
     use CrudTrait;
+    use HasImages;
 
     /*
     |--------------------------------------------------------------------------
@@ -47,11 +49,6 @@ class Room extends Model
     public function convenience()
     {
         return $this->belongsTo(RoomHasConvenience::class, 'convenience_id');
-    }
-
-    public function images()
-    {
-        return $this->hasMany('App\Models\Image', 'room_id');
     }
     /*
     |--------------------------------------------------------------------------

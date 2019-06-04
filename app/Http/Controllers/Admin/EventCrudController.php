@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Hotel;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
@@ -46,12 +47,57 @@ class EventCrudController extends CrudController
 
     private function setupColumns()
     {
+        $this->crud->addColumn([
+            'name' => 'image', // The db column name
+            'label' => "image", // Table column heading
+            'type' => 'image_custom',
+            'height' => '50px',
+            'closure' => function($entry) {
+                return @$entry->images->first()->url;
+            }
+        ]);
 
+        $this->crud->addColumn([
+            'name' => 'image', // The db column name
+            'label' => "image", // Table column heading
+            'type' => 'image_custom',
+            'height' => '50px',
+            'closure' => function($entry) {
+                return @$entry->images->first()->url;
+            }
+        ]);
     }
 
     private function setupFields()
     {
+        $this->crud->modifyField('name', [
+            'name' => 'name',
+            'label' => 'Title',
+            'type' => 'text'
+        ]);
 
+        $this->crud->addField([       // Select2Multiple = n-n relationship (with pivot table)
+            'label' => "Hotels",
+            'type' => 'select2_multiple',
+            'name' => 'hotels', // the method that defines the relationship in your Model
+            'entity' => 'hotels', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            'model' => Hotel::class, // foreign key model
+            'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+            'select_all' => true, // show Select All and Clear buttons?
+        ]);
+
+        $this->crud->modifyField('content', [
+            'name' => 'content',
+            'label' => 'Content',
+            'type' => 'tinymce'
+        ]);
+
+        $this->crud->addField([
+            'name' => 'images',
+            'label' => 'Images',
+            'type' => 'virals_browse_image',
+        ]);
     }
 
     private function setupFilter()
@@ -61,19 +107,15 @@ class EventCrudController extends CrudController
 
     public function store(StoreRequest $request)
     {
-        // your additional operations before save here
         $redirect_location = parent::storeCrud($request);
-        // your additional operations after save here
-        // use $this->data['entry'] or $this->crud->entry
+        $this->crud->entry->createImage($request->images);
         return $redirect_location;
     }
 
     public function update(UpdateRequest $request)
     {
-        // your additional operations before save here
         $redirect_location = parent::updateCrud($request);
-        // your additional operations after save here
-        // use $this->data['entry'] or $this->crud->entry
+        $this->crud->entry->updateImage($request->images);
         return $redirect_location;
     }
 }

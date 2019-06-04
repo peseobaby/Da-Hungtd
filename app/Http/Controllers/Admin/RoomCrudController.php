@@ -99,6 +99,12 @@ class RoomCrudController extends CrudController
                 return $entry ? explode(':', $entry->convenience->content) : [];
             }
         ]);
+
+        $this->crud->addField([
+            'name' => 'images',
+            'label' => 'Images',
+            'type' => 'virals_browse_image',
+        ]);
     }
 
     public function addColumn()
@@ -147,6 +153,16 @@ class RoomCrudController extends CrudController
                 return $entry->getAllConvenience()->implode('name', ', ');
             }
         ]);
+
+        $this->crud->addColumn([
+            'name' => 'image', // The db column name
+            'label' => "image", // Table column heading
+            'type' => 'image_custom',
+            'height' => '50px',
+            'closure' => function($entry) {
+                return @$entry->images->first()->url;
+            }
+        ]);
     }
 
     public function store(StoreRequest $request)
@@ -154,6 +170,7 @@ class RoomCrudController extends CrudController
         $convenience = $this->roomHasConvenienceRepo->create(['content' => implode(':', $request->convenience_id)]);
         $request->merge(['convenience_id' => $convenience->id]);
         $redirect_location = parent::storeCrud($request);
+        $this->crud->entry->createImage($request->images);
         return $redirect_location;
     }
 
@@ -163,6 +180,7 @@ class RoomCrudController extends CrudController
         $request->offsetUnset('convenience_id');
         $redirect_location = parent::updateCrud($request);
         $this->crud->entry->convenience->update(['content' => implode(':', $convenience)]);
+        $this->crud->entry->updateImage($request->images);
         return $redirect_location;
     }
 
