@@ -7,21 +7,18 @@
                 <span>123 456 7890 123</span>
             </div>
             <ul>
-                @guest
-                    <li><a href="#">Hỗ trợ</a></li>
-                    <li><a href="#">Đăng nhập</a></li>
-                    <li><a href="#">Đăng ký</a></li>
-                @else
+                @if (backpack_auth()->check())
+                    <a href="{{ route('backpack.account.info') }}">{{ backpack_auth()->user()->name }}</a>
+                @endif
+                @if (backpack_auth()->guest())
                     <li>
-                        <a href="#"><img src="assets/images/hoian.png" alt="">{{ Auth::user()->name }} <i
-                                    class="far fa-angle-down"></i></a>
-
-                        <ul>
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#">Logout</a></li>
-                        </ul>
+                        <a href="{{ route('front.auth.login') }}">{{ trans('backpack::base.login') }}</a>
                     </li>
-                @endguest
+                    <li><a href="{{ route('front.auth.register') }}">{{ trans('backpack::base.register') }}</a></li>
+                @else
+                <!-- Topbar. Contains the right part -->
+                    <li><a href="{{ route('front.auth.logout') }}"><i class="fa fa-btn fa-sign-out"></i> {{ trans('backpack::base.logout') }}</a></li>
+                @endif
             </ul>
         </nav>
     </div>
