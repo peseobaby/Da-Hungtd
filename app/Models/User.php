@@ -21,6 +21,7 @@ class User extends Model
     // public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = [];
+    protected $guard_name = 'web';
     // protected $hidden = [];
     // protected $dates = [];
 

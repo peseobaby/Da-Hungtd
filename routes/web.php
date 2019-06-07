@@ -26,4 +26,28 @@ Route::group([
     Route::post('user/update/{id}', 'UserController@store')->name('store.user');
     Route::get('hotel/search', 'HotelController@search')->name('front.hotel.search');
 
+    //auth
+    // Authentication Routes...
+    Route::group([
+        'prefix'  => 'front',
+    ], function () {
+        Route::get('login', 'Auth\LoginController@showLoginForm')->name('front.auth.login');
+        Route::post('login', 'Auth\LoginController@customLogin');
+        Route::get('logout', 'Auth\LoginController@logout')->name('front.auth.logout');
+        Route::post('logout', 'Auth\LoginController@logout');
+
+        // Registration Routes...
+        Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('front.auth.register');
+        Route::post('register', 'Auth\RegisterController@register');
+
+        // Password Reset Routes...
+        Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('front.auth.password.reset');
+        Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+        Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('front.auth.password.reset.token');
+        Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('front.auth.password.email');
+    });
+
+
 });
+
+
