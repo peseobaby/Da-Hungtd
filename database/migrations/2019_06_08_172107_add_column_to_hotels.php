@@ -15,15 +15,15 @@ class AddColumnToHotels extends Migration
     {
         Schema::table('hotels', function (Blueprint $table) {
             $table->string('address')->nullable();
-            $table->integer('provide_id')->nullable();
+            $table->unsignedInteger('provide_id')->nullable();
             $table->foreign('provide_id')
                 ->references('id')
-                ->on($tableNames['provides'])
+                ->on('provides')
                 ->onDelete('cascade');
-            $table->integer('city_id')->nullable();
+            $table->unsignedinteger('city_id')->nullable();
             $table->foreign('city_id')
                 ->references('id')
-                ->on($tableNames['cities'])
+                ->on('cities')
                 ->onDelete('cascade');
         });
     }
