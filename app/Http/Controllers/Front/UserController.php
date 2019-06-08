@@ -21,19 +21,17 @@ class UserController extends Controller
     public function show($id)
     {
         $user = $this->user->show($id);
-        return view('user.profile', compact('user'));
+        return view('front.user.profile', compact('user'));
     }
 
     public function edit($id)
     {
         $user = $this->user->show($id);
-        return view('user.hosocanhan', compact('user'));
+        return view('front.user.hosocanhan', compact('user'));
     }
 
-    public function store(Request $request, $id)
+    public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $this->user->store($data, $id);
-        $this->show($id);
+        dd($request->all());
     }
 }

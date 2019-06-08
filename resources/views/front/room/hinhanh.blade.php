@@ -20,22 +20,22 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="{{ route('add.room') }}">Mô tả</a>
+            <a class="nav-link " data-toggle="tab" href="">Mô tả</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="{{ route('convenince.room') }}">Tiện ích</a>
+            <a class="nav-link" data-toggle="tab" href="">Tiện ích</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="{{ route('image.room') }}">Hình ảnh</a>
+            <a class="nav-link active" data-toggle="tab" href="">Hình ảnh</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="{{ route('price.room') }}">Giá cả và chính sách</a>
+            <a class="nav-link" data-toggle="tab" href="x">Giá cả và chính sách</a>
           </li>
         </ul>
 
         <!-- Tab panes -->
         <div class="tab-content">
-          <div class="tab-pane container fade" id="hinhanh">
+          <div class="tab-pane container  active" id="hinhanh">
             <p class="font-weight-bold">Hãy thu hút người dùng bằng những bức ảnh thật đẹp ở căn hộ của bạn</p>
 
             <div class="d-flex form-group">

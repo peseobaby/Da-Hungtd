@@ -56,17 +56,18 @@
 						<th></th>
 					</tr>
 				</thead>
-
 				<tbody>
+					@foreach($orders as $order)
 					<tr>
-						<td>{{ $order->id }}</a></td>
-						<td>{{ $order->hotel->name }}</a></td>
+						<td>{{ $order->id }}</td>
+						<td>{{ $order->hotel->name }}</td>
 						<td>{{ $order->create_at }}</td>
 						<td>{{ $order->create_at }}</td>
 						<td>{{ $order->price }}</td>
 						<td>Incomplete</td>
 						<td><a class="btn">Chi tiết đặt phòng</a></td>
 					</tr>
+					@endforeach
 				</tbody>
 			</table>
 		</article>		 

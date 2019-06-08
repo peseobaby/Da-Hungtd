@@ -20,6 +20,10 @@
             <h2 class="title">Thông tin khách sạn</h2>
             <!-- Nav tabs -->
 
+            @if($hotel == null)
+                <p class="font-weight-bold">Bạn chưa đăng khách sạn nào vào hệ thống , hãy tạo mới khách sạn cho bạn</p>
+                <a class="btn" href="{{ route('front.hotel.create') }}">Danh sách phòng của khách sạn</a>
+            @endif
             <!-- Tab panes -->
             <div class="tab-content">
               <div class="tab-pane container active" id="mota">
@@ -38,9 +42,9 @@
                     <label class="col-form-label" for="tieude" class="col-form-label label bold">Ảnh đại diện<span class="important">*</span></label>
 
                     <div class="input input--width">
-                        {{ $hotel->cover }}
+                        <img src="{{ asset('assets/images/hanoi.png') }}">
                     </div>
-
+                </div>
                 <div class="form-group d-flex">
                     <label class="col-form-label" for="loaicanho">Tỉnh</label>
 
@@ -61,10 +65,8 @@
                     </div>
                 </div>
                 <div class="btn-control">
-                    <button class="btn" href="{{ route('all.room', $hotel->id) }}">Danh sách phòng của khách sạn</button>
+                    <a href="{{ route('all.room', $hotel->id) }}"><button class="btn" >Danh sách phòng của khách sạn</button>
                 </div>
-            </form>
-
               </div>
         </section>
     @endsection

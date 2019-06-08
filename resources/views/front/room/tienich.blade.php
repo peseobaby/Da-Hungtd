@@ -4,7 +4,7 @@
 @endsection
 @section('before_scripts')
     <!--build:css css/styles.min.css -->
-    <link rel="stylesheet" href="'{{ asset('assets/css/dangphongchu.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/dangphongchu.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;subset=vietnamese" rel="stylesheet">
 @endsection
     <!-- endbuild -->
@@ -19,28 +19,29 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="{{ route('add.room') }}">Mô tả</a>
+            <a class="nav-link " data-toggle="tab" href="">Mô tả</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="{{ route('convenince.room') }}">Tiện ích</a>
+            <a class="nav-link active" data-toggle="tab" href="">Tiện ích</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="{{ route('image.room') }}">Hình ảnh</a>
+            <a class="nav-link" data-toggle="tab" href="">Hình ảnh</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="{{ route('price.room') }}">Giá cả và chính sách</a>
+            <a class="nav-link" data-toggle="tab" href="">Giá cả và chính sách</a>
           </li>
         </ul>
 
         <!-- Tab panes -->
         <div class="tab-content">
-          <div class="tab-pane container fade" id="tienich">
+          <div class="tab-pane container active">
             <p class="font-weight-bold">Thêm các tiện nghi để làm nổi bật căn hộ của bạn với khách hàng</p>
-        <form method="post" action="{{ route('create.convenince') }}" role="form">
+        <form method="post" action="" role="form">
             <div class="form-group d-flex">
-                @foreach($conveninces as $convenince)
+                @foreach($conveniences as $convenience)
                     <div class="d-flex">
-                        <input type="radio" name="convenince" value="{{ $convenince->id }}"/> {{ $convenince->name }}<br/>
+                        <input type="checkbox" name="convenince" value="{{ $convenience->id }}>
+                        <label class="col-form-label" for="beboi" class="col-form-label">{{ $convenience->name }}</label>
                     </div>
                 @endforeach
             </div>

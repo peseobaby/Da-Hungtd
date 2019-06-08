@@ -24,16 +24,21 @@ class RoomRepository extends BaseRepository implements RoomRepositoryInterface
 
     public function getRoomsActive($id)
     {
-        return $rooms = $this->model->where('hotel_id', $id)->where('active', 1)->get();
+        return $rooms = $this->model->where('hotel_id', $id)->where('accept', 1)->get();
     }
 
     public function getRoomUnactive($id)
     {
-        return $rooms = $this->model->where('hotel_id', $id)->where('active', 0)->get();
+        return $rooms = $this->model->where('hotel_id', $id)->where('accept', 0)->get();
     }
 
     public function store($data)
     {
         return $this->model->create($data);
+    }
+
+    public function getType()
+    {
+        return $this->model->type;
     }
 }
