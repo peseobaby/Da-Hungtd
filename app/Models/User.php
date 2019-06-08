@@ -20,7 +20,14 @@ class User extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [];
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'phone',
+        'serial_number',
+        'address',
+    ];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -35,7 +42,6 @@ class User extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
     /*
     |--------------------------------------------------------------------------
     | SCOPES

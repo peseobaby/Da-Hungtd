@@ -29,10 +29,10 @@
 				</div>
 				<nav class="nav">
 					<ul>
-						<li><a href="{{ route('front.hotel.index', $user->id) }}" class="active">Quản lý phòng</a></li>
+						<li><a href="{{-- {{ route('front.hotel.index', $user->hotel->id) }} --}}" class="active">Quản lý khách sạn</a></li>
 						<li><a href="{{ route('show.user', $user->id) }}">Hồ sơ cá nhân</a></li>
 						<li><a href="">Thay đổi mật khẩu</a></li>
-						<li><a href="{{ route('logout') }}">Đăng xuất</a></li>
+						<li><a href="{{-- {{ route('logout') }} --}}">Đăng xuất</a></li>
 					</ul>
 				</nav>
 			</aside>
@@ -92,7 +92,7 @@
 						<label for="" class="col-form-label col-md-2">Địa chỉ</label>
 
 						<div class="col-9">
-							<input type="text" class="form-control form-control-lg" name="address" value="{{ $user->address }} placeholder="Nơi bạn sống">
+							<input type="text" class="form-control form-control-lg" name="address" value="{{ $user->address }}" placeholder="Nơi bạn sống">
 						</div>
 					</div>
 
@@ -111,7 +111,7 @@
 						<label for="" class="col-form-label col-md-2">CMND</label>
 
 						<div class="col-9">
-							<input type="text" class="form-control form-control-lg" name ="cmnd" value="{{ $user->address }}">
+							<input type="text" class="form-control form-control-lg" name ="serial_number" value="{{ $user->serial_number }}">
 						</div>
 					</div>
 					<div class="button--control">

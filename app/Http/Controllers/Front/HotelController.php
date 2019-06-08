@@ -22,7 +22,7 @@ class HotelController extends Controller
         $this->addressRepo = $adressRepo;
 
     }
-    public function index()
+    public function create()
     {
         $data['provinces'] = getAllProvides();
         $data['cities'] = getAllCities();
@@ -73,6 +73,6 @@ class HotelController extends Controller
     public function show($id)
     {
         $hotel = $this->hotelRepo->find($id);
-        return view('front.hotel.create_hotel', $hotel);
+        return view('front.hotel.show_hotel', compact('hotel'));
     }
 }

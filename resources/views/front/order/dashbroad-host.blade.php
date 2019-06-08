@@ -39,13 +39,13 @@
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs">
                           <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="{{ route('guest.in') }}">Khách nhận phòng</a>
+                            <a class="nav-link active" data-toggle="tab" href="{{ route('guest.in', 1) }}">Khách nhận phòng</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="{{ route('guest.out') }}">Khách trả phòng</a>
+                            <a class="nav-link" data-toggle="tab" href="{{ route('guest.out', 1) }}">Khách trả phòng</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="{{ route('guest.at') }}">Lưu trú qua đêm</a>
+                            <a class="nav-link" data-toggle="tab" href="{{ route('guest.at', 1) }}">Lưu trú qua đêm</a>
                           </li>
                         </ul>
 
@@ -81,7 +81,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                             @endforeach
                           </div>
                         </div>
                     </div>  
@@ -124,6 +124,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
                           </div>
                         </div>
                     </div>

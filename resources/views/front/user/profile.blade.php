@@ -20,7 +20,7 @@
         <div class="container container-flex">
             <aside>
                 <div class="info-profile">
-                    <img src="assets/images/nhatrang.png" alt="">
+                    <img src="{{ asset('assets/images/nhatrang.png') }}" alt="">
 
                     <div class="name">
                         <h3>{{ $user->name }}</h3>
@@ -29,26 +29,21 @@
                 </div>
                 <nav class="nav">
                     <ul>
-                        <li><a href="{{ route('front.hotel.index', $user->id) }}" class="active">Quản lý phòng</a></li>
-                        <li><a href="{{ route('user.show') }}">Hồ sơ cá nhân</a></li>
+                        <li><a href="{{ route('front.hotel.show', $user->id) }}">Quản lý phòng</a></li>
+                        <li><a href="{{ route('show.user', $user->id) }}"  class="active">Hồ sơ cá nhân</a></li>
                         <li><a href="">Thay đổi mật khẩu</a></li>
-                        <li><a href="{{ route('logout') }}">Đăng xuất</a></li>
+                        <li><a href="{{-- {{ route('logout') }} --}}">Đăng xuất</a></li>
                     </ul>
                 </nav>
             </aside>
 
             <article>
                 <h1>Hồ sơ cá nhân</h1>
-
-
                     <div class="form-group d-flex">
                             <label class="col-form-label col-md-2" for="tieude" class="col-form-label label bold">Avatar <span class="important">*</span></label>
             
                             <div class="col-md-9 upload-file">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="avatar" name="cover" onchange="readURL(this)">
-                                    <label class="custom-file-label" for="avatar">Choose file</label>   
-                                </div>
+                                <img src="{{ asset('assets/images/hanoi.png') }}">
             
                             </div>
             
@@ -69,7 +64,7 @@
 
                         <div class="col-9">
                             {{ $user->email }}
-                            <span>Email sẽ được dùng để đăng nhập, nhận thông báo và đặt lại mật khẩu.</span>
+                            <p><span>Email sẽ được dùng để đăng nhập, nhận thông báo và đặt lại mật khẩu.</span></p>
                         </div>
                     </div>
 
@@ -78,7 +73,7 @@
 
                         <div class="col-9">
                             {{ $user->phone }}
-                            <span>Số di động sẽ được dùng để đăng nhập và đặt lại mật khẩu.</span>
+                            <p><span>Số di động sẽ được dùng để đăng nhập và đặt lại mật khẩu.</span></p>
                         </div>
                         
                     </div>
@@ -97,11 +92,11 @@
                         <label for="" class="col-form-label col-md-2">CMND</label>
 
                         <div class="col-9">
-                            {{ $user->num_id }}
+                            {{ $user->serial_number}}
                         </div>
                     </div>
                     <div class="button--control">
-                        <button class="btn" href="{{ route('edit.user') }}">Cập nhật</button>
+                        <a class="btn" type="button" href="{{ route('edit.user', $user->id) }}">Cập nhật</a>
                     </div>
                 </form>
             </article>

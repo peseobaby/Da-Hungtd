@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Front;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\Image\ImageServiceInterface;
-use use App\Repositories\Room\RoomRepository;
+use App\Repositories\Room\RoomRepositoryInterface;
+use App\Repositories\Room\RoomRepository;
+use App\Models\RoomType;
+use App\Models\Convenience;
 
 class RoomController extends Controller
 {
@@ -29,18 +32,41 @@ class RoomController extends Controller
         return view('front.room.danhsachphongdakichhoat', compact('rooms'));
     }
 
-    public function getActive($id)
+    public function getUnactive($id)
     {
         $rooms = $this->room->getRoomUnactive($id);
         return view('front.room.danhsachphongchuakichhoat', compact('rooms'));
     }
 
-    public function store(Request $request, $id)
+    public function create()
+    {
+        $types = RoomType::all();
+        return view('front.room.mota', compact('types'));
+    }
+
+    public function store(Request $request)
     {
         $data = $request->all();
-        $data['hotel_id'] = $id;
-        $this->room->create($data);
-        $rooms = $this->room->getRooms($id);
-        return view('front.room.danhsachphongdang', compact('rooms'));
+        $data['accept'] = 0;
+        $data['hotel_id'] = 1;
+        $room = $this->room->create($data);
+        $id = $room->id;
+        return redirect()->route('convenience.room', $id);
+    }
+
+    public function convenience($id)
+    {
+        $conveniences = Convenience::all();
+        return view('front.room.tienich', compact('conveniences'));
+    }
+
+    public function image($id)
+    {
+        return view('front.room.hinhanh');
+    }
+
+    public function price($id)
+    {
+        return view('front.room.gia');
     }
 }

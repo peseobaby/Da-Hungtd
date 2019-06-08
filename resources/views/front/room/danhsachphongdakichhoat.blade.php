@@ -3,7 +3,7 @@
     <title>Danh sách phòng đã kích hoạt</title>
 @endsection
 @section('before_scripts')
-    <link rel="stylesheet" href="{{ asset('assets/css/danhsachphongdang.css') }}') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/danhsachphongdang.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;subset=vietnamese" rel="stylesheet">
     <!-- endbuild -->
 @endsection
@@ -14,18 +14,18 @@
     @section('content')
     <section class="host--content">
         <div class="container-center">
-            <button class="btn create" href="{{ route('add.room') }}">Thêm căn hộ mới</button>
+            <a href="{{ route('add.room') }}"><button class="btn create" >Thêm căn hộ mới</button></a>
 
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
               <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="{{ route('all.room') }}">Tất cả</a>
+               <a class="nav-link" href="{{ route('all.room', 1) }}">Tất cả</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="{{ route('unactive.room') }}">Chưa duyệt</a>
+                <a class="nav-link" href="{{ route('unactive.room', 1) }}">Chưa duyệt</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="{{ route('active.room') }}">Đã duyệt</a>
+                <a class="nav-link active" href="{{ route('active.room', 1) }}">Đã duyệt</a>
               </li>
 
               <div class="sort">
@@ -43,16 +43,16 @@
                     <div class="item">
                         <div class="left">
                             <div class="image">
-                                <img src="{{ $room->image->image }}" alt="">
+                                <img src="{{-- {{ $room->image->image }} --}}" alt="">
                             </div>
                             <div class="details">
                                 <h2>{{ $room->name }}<span class="active">{{ $room->active }}</span></h2>
                                 <p>Cập nhật lần cuối ngày 30-05-2019</p>
 
                                 <div class="crud">
-                                    <a href=""><button class="btn" href="{{ route('update.room') }}">Cập nhật</button></a>
-                                    <a href=""><button class="btn" href="{{ route('show.room') }}">Xem</button></a>
-                                    <a href=""><button class="btn" href="{{ route('delete.room') }}">Xóa</button></a>
+                                    <a href=""><button class="btn" href="{{ route('edit.room', $room->id) }}">Cập nhật</button></a>
+                                    <a href=""><button class="btn" href="{{-- {{ route('show.room') }} --}}">Xem</button></a>
+                                    <a href=""><button class="btn" href="{{-- {{ route('delete.room') }} --}}">Xóa</button></a>
                                 </div>
                             </div>
                         </div>

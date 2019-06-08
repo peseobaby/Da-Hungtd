@@ -19,32 +19,29 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="{{ route('add.room') }}">Mô tả</a>
+            <a class="nav-link " data-toggle="tab" href="">Mô tả</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="{{ route('convenince.room') }}">Tiện ích</a>
+            <a class="nav-link" data-toggle="tab" href="">Tiện ích</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="{{ route('image.room') }}">Hình ảnh</a>
+            <a class="nav-link" data-toggle="tab" href="">Hình ảnh</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="{{ route('price.room') }}">Giá cả và chính sách</a>
+            <a class="nav-link active" data-toggle="tab" href="">Giá cả và chính sách</a>
           </li>
         </ul>
 
         <!-- Tab panes -->
         <div class="tab-content">
-          <div class="tab-pane container fade" id="gia">
+          <div class="tab-pane container active" id="gia">
             <p class="font-weight-bold">Giá cả và các chính sách</p>
 
             <div class="form-group d-flex">
                 <label class="col-form-label" for="">Đơn vị tiền tệ</label>
 
                 <div class="col-md-3">
-                    <select name="" id="" class="form-control form-control-lg">
-                        <option value="">Việt Nam Đồng</option>
-                        <option value="">USD</option>
-                    </select>
+                        <span value="">Việt Nam Đồng</span>
                 </div>
             </div>
 
@@ -55,7 +52,7 @@
 
                 <div class="input d-flex">
                     <input type="number" class="form-control form-control-lg">
-                    <label class="col-form-label" for="" class="col-auto">$ / đêm</label>
+                    <label class="col-form-label" for="" class="col-auto">VNĐ / đêm</label>
                     <i>Giá đã bao gồm 15% hoa hồng cho traveltrip. </i>
                 </div>
             </div>
@@ -65,7 +62,7 @@
 
                 <div class="input d-flex">
                     <input type="number" class="form-control form-control-lg">
-                    <label class="col-form-label" for="" class="col-auto">$ / đêm</label>
+                    <label class="col-form-label" for="" class="col-auto">VNĐ / đêm</label>
                     <i>Cuối tuần bao gồm: thứ sáu, thứ bảy, chủ nhật.</i>
                 </div>
             </div>
@@ -78,7 +75,7 @@
 
                 <div class="input d-flex">
                     <input type="number" class="form-control form-control-lg">
-                    <label class="col-form-label" for="" class="col-auto">$ / đêm</label>
+                    <label class="col-form-label" for="" class="col-auto">VND / đêm</label>
                     <i>Khách sẽ được áp dụng giá này cho bất kỳ đặt phòng nào là 30 đêm trở lên .</i>
                 </div>
             </div>

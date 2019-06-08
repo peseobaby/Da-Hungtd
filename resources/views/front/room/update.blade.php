@@ -22,13 +22,13 @@
             <a class="nav-link active" data-toggle="tab" href="{{ route('add.room') }}">Mô tả</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="">Tiện ích</a>
+            <a class="nav-link" data-toggle="tab" href="{{ route('convenince.room') }}">Tiện ích</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="">Hình ảnh</a>
+            <a class="nav-link" data-toggle="tab" href="{{ route('image.room') }}">Hình ảnh</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="">Giá cả và chính sách</a>
+            <a class="nav-link" data-toggle="tab" href="{{ route('price.room') }}">Giá cả và chính sách</a>
           </li>
         </ul>
 
@@ -37,8 +37,8 @@
           <div class="tab-pane container active" id="mota">
 
             <p class="font-weight-bold">Tiêu đề, tóm tắt và mô tả căn hộ sẽ được hiển thị công khai trên trang của bạn.</p>
-        <form method="post" action="{{ route('store.room') }}" role="form">
-            {!! csrf_field() !!}
+        <form method="post" action="{{ route('update.room', $room->id) }}" role="form">
+
             <div class="form-group d-flex">
                 <label class="col-form-label" for="tieude" class="col-form-label label bold">Tiêu đề <span class="important">*</span></label>
                 <div class="input">
@@ -71,7 +71,7 @@
                 <label class="col-form-label" for="loaicanho">Số người</label>
 
                 <div class="input">
-                    <input type="number" name="capacity" class="form-control form-control-lg">
+                    <input type="number" name="capacity" value="{{ $room->capacity }}" class="form-control form-control-lg">
                 </div>
             </div>
 
@@ -79,7 +79,7 @@
                 <label class="col-form-label" for="loaicanho">Số lượng phòng ngủ</label>
 
                 <div class="input">
-                    <input type="number" name="num_bed_room" class="form-control form-control-lg">
+                    <input type="number" name="num_bed_room" value="{{ $room->num_bed_room }}" class="form-control form-control-lg">
                 </div>
             </div>
 
@@ -87,7 +87,7 @@
                 <label class="col-form-label" for="loaicanho">Diện tích</label>
 
                 <div class="input">
-                    <input type="number" name="area" class="form-control form-control-lg">
+                    <input type="number" name="area" value="{{ $room->area }}" class="form-control form-control-lg">
                 </div>
             </div>
 
@@ -95,9 +95,9 @@
                 <label class="col-form-label" for="loaicanho">Giá tiền</label>
 
                 <div class="input">
-                    <input type="number" name="area" class="form-control form-control-lg">
+                    <input type="number" name="price" value="{{ $room->price }}" class="form-control form-control-lg">
                 </div>
-                <label class="col-form-label" for="" class="col-auto">$ / đêm</label>
+                <label class="col-form-label" for="" class="col-auto">VND / đêm</label>
             </div>
 
             <div class="form-group d-flex">
@@ -123,10 +123,7 @@
                 <button class="btn submit">Tiếp</button>
             </div>
         </form>
-
-          </div>
-
-        
+        </div>
     </section>
 @endsection
 

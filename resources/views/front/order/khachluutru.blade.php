@@ -1,6 +1,6 @@
-<@extends('front.layout.layout-front')
+@extends('front.layout.layout-front')
 @section('title')
-    <title>Danh sách khách ở qua đêm</title>
+    <title>Danh sách phòng đặt</title>
 @endsection
 @section('before_scripts')
     <!--build:css css/styles.min.css -->
@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="{{ asset('assets/fonts/font-awesome/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;subset=vietnamese" rel="stylesheet">
-@endsection
+    <!-- endbuild -->
+</head>
 <body>
-@section('header')
+    @section('header')
         @include('front.layout.header-host')
     @endsection
     @section('content')
@@ -38,19 +39,19 @@
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs">
                           <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="{{ route('guest.in') }}">Khách nhận phòng</a>
+                            <a class="nav-link" data-toggle="tab" href="{{ route('guest.in', 1) }}">Khách nhận phòng</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="{{ route('guest.out') }}">Khách trả phòng</a>
+                            <a class="nav-link" data-toggle="tab" href="{{ route('guest.out', 1) }}">Khách trả phòng</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="{{ route('guest.at') }}">Lưu trú qua đêm</a>
+                            <a class="nav-link  active" data-toggle="tab" href="{{ route('guest.at', 1) }}">Lưu trú qua đêm</a>
                           </li>
                         </ul>
 
                         <!-- Tab contents -->
                         <div class="tab-content">
-                          <div class="tab-pane active" id="luutru">
+                          <div class="tab-pane active" id="khachnhan">
                             @foreach($orders as $order)
                             <div class="item">
                                 <div class="left">
@@ -62,7 +63,7 @@
                                         <a href=""><h1>{{ $order->user->name }}</h1></a>
                                         
                                         <div class="day-picker">
-                                            <span>{{ $order->create_at }} </span>
+                                            <span>{{ $order->create_at }} Requested </span>
                                         </div>
 
                                     </div>
@@ -80,7 +81,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                             @endforeach
                           </div>
                         </div>
                     </div>  
@@ -93,7 +94,7 @@
                     <div class="checker">
                         <!-- Tab contents -->
                         <div class="tab-content">
-                          <div class="tab-pane active" id="khachtra">
+                          <div class="tab-pane active" id="khachnhan">
                             @foreach($orders as $order)
                             <div class="item">
                                 <div class="left">
@@ -123,6 +124,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
                           </div>
                         </div>
                     </div>
@@ -175,3 +177,4 @@
     @endsection
 
 </body>
+
