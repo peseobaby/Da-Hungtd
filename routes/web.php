@@ -15,6 +15,7 @@
 Route::group([
     'namespace'  => 'Front',
 ], function () { // custom admin routes
+
             Route::get('/', 'HomeController@index')->name('front.home.index');
             Route::get('hotel/{id}', 'HotelController@index')->name('front.hotel.index');
             Route::get('hotel/search', 'HotelController@search')->name('front.hotel.search');
@@ -43,3 +44,29 @@ Route::group([
             Route::get('order/guest/out/{id}', 'OrderController@guestOut')->name('guest.out');
             Route::get('order/guest/at/{id}', 'OrderController@guestAt')->name('guest.at');
         });
+
+
+    //auth
+    // Authentication Routes...
+    Route::group([
+        'prefix'  => 'front',
+    ], function () {
+        Route::get('login', 'Auth\LoginController@showLoginForm')->name('front.auth.login');
+        Route::post('login', 'Auth\LoginController@customLogin');
+        Route::get('logout', 'Auth\LoginController@logout')->name('front.auth.logout');
+        Route::post('logout', 'Auth\LoginController@logout');
+
+        // Registration Routes...
+        Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('front.auth.register');
+        Route::post('register', 'Auth\RegisterController@register');
+
+        // Password Reset Routes...
+        Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('front.auth.password.reset');
+        Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+        Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('front.auth.password.reset.token');
+        Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('front.auth.password.email');
+    });
+
+
+});
+

@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\Image\ImageServiceInterface;
 use App\Repositories\Room\RoomRepositoryInterface;
+
 use App\Repositories\Room\RoomRepository;
 use App\Models\RoomType;
 use App\Models\Convenience;
+
+
 
 class RoomController extends Controller
 {
@@ -32,7 +35,8 @@ class RoomController extends Controller
         return view('front.room.danhsachphongdakichhoat', compact('rooms'));
     }
 
-    public function getUnactive($id)
+
+    public function getUnActive($id)
     {
         $rooms = $this->room->getRoomUnactive($id);
         return view('front.room.danhsachphongchuakichhoat', compact('rooms'));
