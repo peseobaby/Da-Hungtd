@@ -1,0 +1,15 @@
+@import 'normalize';
+@import 'varialble';
+
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+@import 'tools/daterangepicker';
+
+
+@import 'global';
+
+
+@import 'component/_header-core';
+@import 'component/_article';
+@import 'component/_footer-core.scss';
+

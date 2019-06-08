@@ -1,0 +1,164 @@
+
+
+.host--content {
+	margin-top: 5rem;
+	@extend .container-fluid;
+	h2.title {
+		@extend .container;
+		padding-bottom: 2rem;
+	}
+	.nav {
+		@extend .container;
+		font-size: $font-size-sm;
+		padding: 0;
+
+		a {
+			padding: 1.5rem 2rem; 
+			color: $color-black;
+			font-weight: 500;
+		}
+	}
+	.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+		border: 0;
+		border-bottom: .2rem solid $color-pink;
+	}
+
+	.tab-content {
+		padding: 2rem;
+		font-size: $font-size-sm;
+		font-weight: 500;
+		p.font-weight-bold {
+			padding: 1rem 0 1.5rem 0;
+		}
+		h3 {
+			padding: 1.5rem 0 3rem 0;
+			font-size: $font-size-lg;
+			font-weight: bold;
+		}
+		.form-group {
+			label {
+				@extend .col-md-2;
+				padding-left: 0;
+				.important {
+					color: red;
+				}
+			}
+			.input {
+				@extend .col-md-10;
+				input, select, option {
+					font-size: inherit;
+				}
+				img {
+					max-width: 30rem;
+				}
+			}
+			.d-flex {
+				@extend .col-md-3;
+				align-items: center;
+				flex-flow: wrap;
+				padding-bottom: 1.5rem;
+				label {
+					@extend .col-auto;
+					margin: 0;
+				}
+			}
+		}
+		#tienich, #gia {
+			.form-group {
+				border-bottom: 1px solid $color-grey-light;
+				padding-bottom: 2rem;
+			}
+		}
+		#tienich {
+			input[type=number] {
+				@extend .col-md-4, .form-control, .form-control-lg;
+			}
+		}
+
+		#gia {
+			.input {
+				input {
+					@extend .col-md-3;
+				}
+				i {
+					@extend .col-auto;
+					color: $color-grey;
+				}
+			}
+			.sm-padding {
+				padding-bottom: 1rem;
+				margin-bottom: 0;
+			}
+			.md-padding {
+				padding-bottom: 2.5rem;
+				display: block;
+			}
+		}
+		#mota {
+			.input--width {
+				@extend .col-md-5;
+				ul {
+					margin-top: 2rem;
+				}
+			}
+			.image-center {
+				@extend .center--box, .col-md-5;
+				justify-content: center;
+				border-left: 1px solid $color-grey-light;
+				height: 20rem;
+				max-height: 20rem;
+				img {
+					margin-top: 0;
+					height: 100%;
+					width: auto;
+				}
+			}
+		}
+
+		.custom-file {
+			@extend .form-control, .form-control-lg;
+		    label {
+		    	margin-bottom: 0;
+		    	height: 100%;
+		    	padding: 0.5rem 1rem;
+		    	max-width: 100%;
+		    	position: absolute;
+		    	&:after {
+		    		height: 100%;
+		    		@extend .form-control-lg;
+		    	}
+		    	border: none;
+		    }
+
+		    .custom-file-input {
+		    	@extend .form-control, .form-control-lg;
+		    }
+		}
+	}
+	.btn-control {
+		@extend .container;
+		padding: 0;
+		margin: 1rem 0;
+		display: flex;
+		justify-content: flex-end;
+		margin: auto;
+		padding: 3rem;
+		button {
+			padding: .7rem 3rem;
+			font-size: $font-size-sm;
+			background: $color-pink;
+			color: $color-white;
+			font-weight: 500;
+			margin-left: 1rem;
+		}
+	}
+}
+
+.hidden {
+	display: none;
+}
+.show--img {
+	display: block;
+	margin-top: 1.5rem;
+	width: 100%;
+}
