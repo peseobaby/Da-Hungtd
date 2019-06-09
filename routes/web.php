@@ -36,6 +36,8 @@ Route::group([
     Route::get('room/image/{id}', 'RoomController@image')->name('image.room');
     Route::get('room/price/{id}', 'RoomController@price')->name('price.room');
     Route::get('room/show/{id}', 'RoomController@show')->name('show.room');
+    Route::post('room/search', 'RoomController@search')->name('show.search');
+    Route::get('room/search/{idProvince}', 'RoomController@searchProvince')->name('show.search-province');
 
 
     Route::get('user/{id}', 'UserController@show')->name('show.user');

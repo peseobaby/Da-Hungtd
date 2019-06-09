@@ -24,7 +24,9 @@
     </div>
     <nav class="nav--primary">
         <div class="logo">
-            <h1>Go<span>travel</span></h1>
+            <a href="{{ route('front.home.index') }}">
+                <h1>Go<span>travel</span></h1>
+            </a>
         </div>
 
         <!-- Nav mobile -->

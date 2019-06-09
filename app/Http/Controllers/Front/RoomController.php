@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Models\Hotel;
+use App\Models\Order;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -9,6 +11,7 @@ use App\Services\Image\ImageServiceInterface;
 use App\Repositories\Room\RoomRepositoryInterface;
 use App\Models\RoomType;
 use App\Models\Convenience;
+use Carbon\Carbon;
 
 
 
@@ -76,5 +79,47 @@ class RoomController extends Controller
     public function show($id)
     {
         return view('front.room.mota', ['room' => Room::find($id)]);
+    }
+
+    public function search(Request $request)
+    {
+        $query = Room::query();
+        if ($request->get('query')) {
+            $query = $query->where('description', 'like', '%' . $request->get('query') . '%')
+                ->orWhere('name', 'like', $request->get('query'));
+        }
+        if ($request->get('start_at') && $request->get('end_at')) {
+            $roomIds = Order::all()->filter(function ($order) use ($request) {
+                return $order->create_at <= Carbon::createFromTimeString($request->has('start_at'), 'Asia/Ho_Chi_Minh')
+                    && $order->end_at >= Carbon::createFromTimeString($request->has('end_at'), 'Asia/Ho_Chi_Minh');
+            })->pluck('room_id')->toArray();
+            $query = $query->whereNotIn('id', $roomIds);
+        }
+        if ($request->get('capacity')) {
+            $query = $query->where('capacity', '>=', $request->get('capacity'));
+        }
+        $rooms = $query->get();
+        foreach ($rooms as $room) {
+            $ratings = $room->feedbacks->count() ? $room->feedbacks->pluck('rate')->toArray() : [];
+            $ratings = array_filter($ratings);
+            $room->average = count($ratings) ? FLOOR(array_sum($ratings)/count($ratings)) : 0;
+        }
+        return view('front.room.search', compact('rooms'));
+    }
+
+    public function searchProvince($idProvince)
+    {
+        $query = Room::query();
+        $query = $query->whereHas('hotel', function($query) use ($idProvince) {
+           $query->where('provide_id', (int)$idProvince);
+        });
+        $rooms = $query->get();
+        foreach ($rooms as $room) {
+            $ratings = $room->feedbacks->count() ? $room->feedbacks->pluck('rate')->toArray() : [];
+            $ratings = array_filter($ratings);
+            $room->average = count($ratings) ? FLOOR(array_sum($ratings)/count($ratings)) : 0;
+        }
+        $rooms = $rooms->count() == Room::all()->count() ? collect([]) : $rooms;
+        return view('front.room.search', compact('rooms'));
     }
 }

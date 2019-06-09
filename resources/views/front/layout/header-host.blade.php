@@ -1,7 +1,9 @@
 <header class="header--host">
     <div class="container host--nav">
         <div class="logo">
-            <h1>Travel<span>trip</span></h1>
+            <a href="{{ route('front.home.index') }}">
+                <h1>Travel<span>trip</span></h1>
+            </a>
         </div>
 
         <div class="nav__top">

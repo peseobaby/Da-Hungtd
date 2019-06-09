@@ -17,14 +17,14 @@
             <nav class="search__nav">
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="active" data-toggle="tab" href="#hotels">Hotels</a>
+                        <a class="active" data-toggle="tab" href="#hotels">Rooms</a>
                     </li>
-                    <li class="nav-item">
-                        <a data-toggle="tab" href="#homestay">Homestay</a>
-                    </li>
-                    <li class="nav-item">
-                        <a data-toggle="tab" href="#activity">Activity</a>
-                    </li>
+{{--                    <li class="nav-item">--}}
+{{--                        <a data-toggle="tab" href="#homestay">Homestay</a>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a data-toggle="tab" href="#activity">Activity</a>--}}
+{{--                    </li>--}}
                 </ul>
             </nav>
 
@@ -38,25 +38,31 @@
                     <div class="tab-pane fade" id="activity" role="tabpanel">I don't know activity?</div>
                 </div>
 
-                <form class="form__search">
+                <form class="form__search" action="{{ route('show.search') }}" method="POST">
+                    @csrf
                     <div class="form__item form__input">
                         <input type="text" class="form-control" name="query"
-                               placeholder="Chọn thành phố, địa điểm hoặc homestay">
+                               placeholder="Chọn thành phố, địa điểm">
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
 
                     <div class="form__item form__pick-datime">
-                        <input type="text" name="time" class="form-control" placeholder="Bắt đầu và kết thúc" value="">
+                        <input type="text" name="start_at" class="form-control" placeholder="Thời gian Bắt đầu" value="">
                         <i class="far fa-calendar" id="daterange"></i>
                     </div>
 
-                    <div class="form__item form__picked-people">
-                        <input type="number" id="people" name="number" placeholder="Nhập số người" class="text-center">
+                    <div class="form__item form__pick-datime">
+                        <input type="text" name="end_at" class="form-control" placeholder="Thời gian kết thúc" value="">
+                        <i class="far fa-calendar" id="daterange"></i>
+                    </div>
+
+                    <div class="form__item form__picked-people"  style="width: 40%">
+                        <input type="number" id="capacity" name="capacity" placeholder="Nhập số người" class="text-center">
                         <i class="far fa-users"></i>
                     </div>
 
                     <div class="form__button">
-                        <button class="btn">
+                        <button class="btn" type="submit">
                             Search
                         </button>
                     </div>
@@ -151,7 +157,7 @@
                 @foreach($provides as $provide)
                     <div class="col-4">
                         <div class="item">
-                            <a href="#">
+                            <a href="{{ route('show.search-province', $provide->id) }}">
                                 <img src="{{ asset(@$provide->images->first()->url) }}" alt="">
 
                                 <div class="item-position">
@@ -214,5 +220,25 @@
     <script src="{{ asset('assets/js/daterangepicker.js') }}"></script>
     <script src="{{ asset('assets/js/ion.rangeSlider.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <!-- endbuild -->
+    <script>
+        $(function() {
+            $('input[name="start_at"]').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                locale: {
+                    format: 'DD-MM-YYYY'
+                }
+            });
+
+            $('input[name="end_at"]').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                locale: {
+                    format: 'DD-MM-YYYY'
+                }
+            });
+        });
+    </script>
     <!-- endbuild -->
 @endsection
