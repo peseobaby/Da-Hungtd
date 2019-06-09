@@ -50,6 +50,16 @@ class Hotel extends Model
     {
         return $this->belongsToMany(Event::class, 'event_hotels');
     }
+
+    public function province()
+    {
+        return $this->belongsTo(Provide::class);
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

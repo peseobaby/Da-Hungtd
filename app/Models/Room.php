@@ -23,7 +23,7 @@ class Room extends Model
     // public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = ['name', 'type_id', 'capacity', 'num_bed_room', 'area', 'price',
-                            'active', 'convenience_id'];
+                            'active', 'convenience_id', 'description'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -50,6 +50,7 @@ class Room extends Model
     {
         return $this->belongsTo(RoomHasConvenience::class, 'convenience_id');
     }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES
