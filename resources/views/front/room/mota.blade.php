@@ -105,7 +105,7 @@
                 </div>
             </div>
             <div class="col" style="font-size: 1.5em; padding: 50px;">
-                <form style="border: 1px red solid; padding: 10px" method="post" action="{{ route('set.order') }}">
+                <form style="border: 1px red solid; padding: 10px" method="post" action="{{ route('set.order', $room->id) }}">
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputEmail1">Số người</label>
@@ -144,7 +144,7 @@
                 singleDatePicker: true,
                 showDropdowns: true,
                 locale: {
-                    format: 'MM-DD-YYYY'
+                    format: 'DD-MM-YYYY'
                 }
             });
 
@@ -152,7 +152,7 @@
                 singleDatePicker: true,
                 showDropdowns: true,
                 locale: {
-                    format: 'MM-DD-YYYY'
+                    format: 'DD-MM-YYYY'
                 }
             });
         });

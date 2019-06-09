@@ -51,7 +51,9 @@ Route::group([
 
     Route::get('feedback/room/{id}', 'FeedbackController@feedback')-> name('feedback');
     Route::post('feedback/room/{id}', 'FeedbackController@store')-> name('store.feedback');
-    Route::post('order/set-order', 'OrderController@setOrder')->name('set.order');
+    Route::post('order/set-order/{id}', 'OrderController@setOrder')->name('set.order');
+    Route::post('order/update/{id}', 'OrderController@update')->name('update.order');
+    Route::get('order/myorder/{id}', 'OrderController@showOrder')->name('my.order');
 
 
     //auth

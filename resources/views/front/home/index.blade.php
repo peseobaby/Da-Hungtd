@@ -131,7 +131,7 @@
 
                                 <div class="detail-function">
                                     <div class="button-control">
-                                        <a href="#">View Details</a>
+                                        <a href="{{ route('show.room', $room->id) }}">View Details</a>
                                     </div>
 
                                 </div>
