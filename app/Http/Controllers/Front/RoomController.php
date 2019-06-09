@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Models\Room;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\Image\ImageServiceInterface;
 use App\Repositories\Room\RoomRepositoryInterface;
-
-use App\Repositories\Room\RoomRepository;
 use App\Models\RoomType;
 use App\Models\Convenience;
 
@@ -72,5 +71,10 @@ class RoomController extends Controller
     public function price($id)
     {
         return view('front.room.gia');
+    }
+
+    public function show($id)
+    {
+        return view('front.room.mota', ['room' => Room::find($id)]);
     }
 }

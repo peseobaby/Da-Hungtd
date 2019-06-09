@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="checker">
-                        <!-- Nav tabs -->
+                        <!-- Nav tabs -->ôm
                         <ul class="nav nav-tabs">
                           <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="{{ route('guest.in', $id) }}">Khách nhận phòng</a>

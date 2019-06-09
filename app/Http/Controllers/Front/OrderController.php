@@ -10,6 +10,11 @@ use Carbon\Carbon;
 
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('check_login')->only(['setOrder']);
+    }
+
     public function show($id)
     {
         $user = User::where('id', backpack_user()->id)->first();
@@ -33,5 +38,19 @@ class OrderController extends Controller
     {
         $orders = Order::where('hotel_id', $id)->where('end_at', '>', Carbon::today())->where('create_at', '<', Carbon::today())->get();
         return view('front.order.khachluutru', compact('orders', 'id'));
+    }
+
+    public function setOrder(Request $request)
+    {
+        if (session()->has('REQUEST')) {
+            $data = session()->get('REQUEST')[0];
+            session()->forget('REQUEST');
+        } else {
+            $data = $request->all();
+        }
+        $data['create_at'] = date("Y-m-d H:i:s", strtotime($data['create_at']));
+        $data['end_at'] = date("Y-m-d H:i:s", strtotime($data['end_at']));
+        $order = Order::create($data);
+        return view('front.order.thanhtoan');
     }
 }
