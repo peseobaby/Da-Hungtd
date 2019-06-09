@@ -23,7 +23,7 @@ class Room extends Model
     // public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = ['name', 'type_id', 'capacity', 'num_bed_room', 'area', 'price',
-                            'active', 'convenience_id', 'description'];
+                            'active', 'convenience_id', 'description', 'hotel_id'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -51,10 +51,14 @@ class Room extends Model
         return $this->belongsTo(RoomHasConvenience::class, 'convenience_id');
     }
 
-
     public function hotel()
     {
-        return $this->belongsTo('App\Models\Hotel', 'hotel_id');
+        return $this->belongsTo('App\Models\Hotel');
+    }
+
+    public function feedbacks()
+    {
+        return $this->hasMany(Feedback::class);
     }
     /*
     |--------------------------------------------------------------------------
