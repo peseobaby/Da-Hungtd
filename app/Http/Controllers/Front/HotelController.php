@@ -7,6 +7,8 @@ use App\Http\Requests\Front\StoreHotelRequest;
 use App\Repositories\Address\AddressRepositoryInterface;
 use App\Repositories\Hotel\HotelRepositoryInterface;
 use App\Services\Image\ImageServiceInterface;
+use App\Models\Provide;
+use App\Models\City;
 
 class HotelController extends Controller
 {
@@ -72,6 +74,8 @@ class HotelController extends Controller
 
     public function show($id)
     {
+        $provinces = getAllProvides();
+        $cities = getAllCities();
         $hotel = $this->hotelRepo->find($id);
         return view('front.hotel.show_hotel', compact('hotel'));
     }

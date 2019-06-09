@@ -96,7 +96,7 @@ class RoomCrudController extends CrudController
             'name'      => 'convenience_id',
             'options'   => Convenience::all()->pluck('name', 'id')->toArray(),
             'value' => function($entry) {
-                return $entry ? explode(':', $entry->convenience->content) : [];
+                return @$entry ? explode(':', @$entry->convenience->content) : [];
             }
         ]);
 
@@ -178,8 +178,9 @@ class RoomCrudController extends CrudController
     {
         $convenience = $request->convenience_id;
         $request->offsetUnset('convenience_id');
+        $convenience = $this->roomHasConvenienceRepo->updateOrCreateModel(['content' => implode(':', $convenience)]);
+        $request->merge(['convenience_id' => $convenience->id]);
         $redirect_location = parent::updateCrud($request);
-        $this->crud->entry->convenience->update(['content' => implode(':', $convenience)]);
         $this->crud->entry->updateImage($request->images);
         return $redirect_location;
     }

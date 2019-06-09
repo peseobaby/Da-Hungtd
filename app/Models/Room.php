@@ -34,7 +34,7 @@ class Room extends Model
     */
     public function getAllConvenience()
     {
-        return Convenience::getConvenience(explode(':', $this->convenience->content));
+        return Convenience::getConvenience(explode(':', @$this->convenience->content));
     }
     /*
     |--------------------------------------------------------------------------
@@ -49,6 +49,11 @@ class Room extends Model
     public function convenience()
     {
         return $this->belongsTo(RoomHasConvenience::class, 'convenience_id');
+    }
+
+    public function hotel()
+    {
+        return $this->belongsTo('App\Models\Hotel', 'hotel_id');
     }
     /*
     |--------------------------------------------------------------------------

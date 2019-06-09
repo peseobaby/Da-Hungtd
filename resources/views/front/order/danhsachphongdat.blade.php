@@ -30,7 +30,7 @@
 			</div>
 			<nav class="nav">
 				<ul>
-					<li><a href="" class="active">Quản lý phòng</a></li>
+					<li><a href="{{ route('all.room', backpack_user()->hotels->first()->id) }}" class="active">Quản lý phòng</a></li>
 					<li><a href="">Hồ sơ cá nhân</a></li>
 					<li><a href="">Thay đổi mật khẩu</a></li>
 					<li><a href="">Đăng xuất</a></li>

@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\User;
+use App\Models\User;
 use Backpack\Base\app\Models\Traits\InheritsRelationsFromParentModel;
 use Backpack\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;
 
@@ -33,4 +33,10 @@ class BackpackUser extends User
     {
         return $this->email;
     }
+
+    public function hotels()
+    {
+        return $this->hasMany('App\Models\Hotel', 'user_id');
+    }
+
 }

@@ -19,13 +19,13 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
               <li class="nav-item">
-               <a class="nav-link active" href="{{ route('all.room', 1) }}">Tất cả</a>
+               <a class="nav-link active" href="{{ route('all.room', backpack_user()->hotels->first()->id) }}">Tất cả</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('unactive.room', 1) }}">Chưa duyệt</a>
+                <a class="nav-link" href="{{ route('unactive.room', backpack_user()->hotels->first()->id) }}">Chưa duyệt</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('active.room', 1) }}">Đã duyệt</a>
+                <a class="nav-link" href="{{ route('active.room', backpack_user()->hotels->first()->id) }}">Đã duyệt</a>
               </li>
 
               <div class="sort">
@@ -43,7 +43,7 @@
                     <div class="item">
                         <div class="left">
                             <div class="image">
-                                <img src="{{-- {{ $room->image->image }} --}}" alt="">
+                                <img src="{{asset($room->images->first()->url) }}" alt="">
                             </div>
                             <div class="details">
                                 <h2>{{ $room->name }}<span class="active">{{ $room->active }}</span></h2>

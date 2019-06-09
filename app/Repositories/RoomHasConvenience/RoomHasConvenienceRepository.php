@@ -22,5 +22,6 @@ class RoomHasConvenienceRepository extends BaseRepository implements RoomHasConv
     {
         parent::__construct($model);
         $this->model = $model;
+        $this->modelClass = RoomHasConvenience::class;
     }
 }
