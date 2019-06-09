@@ -195,11 +195,11 @@
 							<div class="fare--details">
 								<div class="form-group">
 									<label for="">Ngày đến</label>
-									<label for="" class="bold"></label>
+									<label for="" class="bold">{{ $order ->create_at }}</label>
 								</div>
 								<div class="form-group">
 									<label for="">Ngày đi</label>
-									<label for="" class="bold"></label>
+									<label for="" class="bold">{{ $order ->end_at }}</label>
 								</div>
 								<div class="form-group">
 									<label for="">Số khách</label>
@@ -212,7 +212,7 @@
 								</div>
 							</div>
 						</div>
-					</section>					
+					</section>
 				</div>
 
 			</div>

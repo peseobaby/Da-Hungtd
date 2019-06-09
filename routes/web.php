@@ -48,6 +48,9 @@ Route::group([
     Route::get('order/guest/in/{id}', 'OrderController@guestIn')->name('guest.in');
     Route::get('order/guest/out/{id}', 'OrderController@guestOut')->name('guest.out');
     Route::get('order/guest/at/{id}', 'OrderController@guestAt')->name('guest.at');
+
+    Route::get('feedback/room/{id}', 'FeedbackController@feedback')-> name('feedback');
+    Route::post('feedback/room/{id}', 'FeedbackController@store')-> name('store.feedback');
     Route::post('order/set-order', 'OrderController@setOrder')->name('set.order');
 
 

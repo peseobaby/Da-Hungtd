@@ -51,7 +51,7 @@ class RoomController extends Controller
     {
         $data = $request->all();
         $data['accept'] = 0;
-        $data['hotel_id'] = 1;
+        $data['hotel_id'] = backpack_user()->hotels->first()->id;
         $room = $this->room->create($data);
         $id = $room->id;
         return redirect()->route('convenience.room', $id);
