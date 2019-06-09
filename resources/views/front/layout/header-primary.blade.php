@@ -4,7 +4,7 @@
         <nav class="top--content">
             <div class="nav--top-icon">
                 <i class="far fa-phone"></i>
-                <span>123 456 7890 123</span>
+                <span>0962642655</span>
             </div>
             <ul>
                 @if (backpack_auth()->check())

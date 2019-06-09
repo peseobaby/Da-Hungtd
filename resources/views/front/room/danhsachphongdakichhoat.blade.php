@@ -43,7 +43,7 @@
                     <div class="item">
                         <div class="left">
                             <div class="image">
-                                <img src="{{-- {{ $room->image->image }} --}}" alt="">
+                                <img src="{{asset($room->images->first()->url) }}" alt="">
                             </div>
                             <div class="details">
                                 <h2>{{ $room->name }}<span class="active">{{ $room->active }}</span></h2>

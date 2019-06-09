@@ -55,7 +55,7 @@
 									<label for="name">Họ và tên: </label>
 
 									<div>
-										<input type="text" class="form-control form-control-lg" placeholder="Nhập tên như CMT hoặc hộ chiếu" value="{{ $order->user->num_id }}">
+										<input type="text" class="form-control form-control-lg" placeholder="Nhập tên như CMT hoặc hộ chiếu" value="">
 									</div>
 								</div>
 
@@ -63,7 +63,7 @@
 									<label for="name">Số điện thoại: </label>
 
 									<div>
-										<input type="text" class="form-control form-control-lg" placeholder="VD: +84965788674" value="{{ $order->user->phone }}>
+										<input type="text" class="form-control form-control-lg" placeholder="VD: +84965788674" value="">
 									</div>
 								</div>
 
@@ -71,7 +71,7 @@
 									<label for="name">Email: </label>
 
 									<div>
-										<input type="text" class="form-control form-control-lg" placeholder="VD: abc@viralsoft.vn" value="{{ $order->user->email }}>
+										<input type="text" class="form-control form-control-lg" placeholder="VD: abc@viralsoft.vn" value="">
 									</div>	
 								</div>
 
@@ -135,9 +135,9 @@
 							<div class="confirm--info confirm_box">
 								<h4>Thông tin đơn đặt phòng</h4>
 
-								<p>Họ và tên: {{ $order ->user->name }}</p>
-								<p>E-mail: {{ $order ->user->email }}</p>
-								<p>Địa chỉ: {{ $order ->user->address }}</p>
+								<p>Họ và tên: </p>
+								<p>E-mail: </p>
+								<p>Địa chỉ: </p>
 								<p>Quốc tịch: Việt Nam</p>
 							</div>
 							<div class="confirm_box">
@@ -184,10 +184,10 @@
 								
 
 								<div class="details">
-									<h4 class="name">{{  }}</h4>
+									<h4 class="name"></h4>
 
-									<span class="descripton">{{ $order ->room->name }}</span>
-									<span class="descripton">{{ $order ->hotel->address }}</span>
+									<span class="descripton"></span>
+									<span class="descripton"></span>
 
 								</div>
 							</div>
@@ -195,11 +195,11 @@
 							<div class="fare--details">
 								<div class="form-group">
 									<label for="">Ngày đến</label>
-									<label for="" class="bold">{{ $order ->create_at }}</label>		
+									<label for="" class="bold">{{ $order ->create_at }}</label>
 								</div>
 								<div class="form-group">
 									<label for="">Ngày đi</label>
-									<label for="" class="bold">{{ $order ->end_at }}</label>	
+									<label for="" class="bold">{{ $order ->end_at }}</label>
 								</div>
 								<div class="form-group">
 									<label for="">Số khách</label>
@@ -208,11 +208,11 @@
 
 								<div class="total">
 									<label for="">Tổng giá</label>
-									<h4>{{ $order ->price }}</h4>
+									<h4></h4>
 								</div>
 							</div>
 						</div>
-					</section>					
+					</section>
 				</div>
 
 			</div>

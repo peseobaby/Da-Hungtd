@@ -21,29 +21,26 @@
         <div class="tab-content">
             <div class="tab-pane container active" id="mota">
                 <p class="font-weight-bold">Đánh giá khách sạn</p>
-                <form method="post" action="{{ route('front.hotel.store') }}" role="form" enctype="multipart/form-data">
+                <form method="post" action="{{ route('store.feedback', $room->id) }}" role="form" enctype="multipart/form-data">
                     {{ csrf_field() }}
 
                     <div class="form-group">
-                        <label class="col-form-label" for="loaicanho">Feedback<span class="important">*</span></label>
+                        <label class="col-form-label" for="loaicanho">Đánh giá<span class="important">*</span></label>
 
                         <div class="input">
-                            <textarea name="name" class="form-control form-control-lg" required></textarea>
+                            <input type ="textarea" name="feedback" class="form-control form-control-lg" required></input>
                         </div>
                         @if ($errors->has('name'))
                             <span class="error">{{ $errors->first('name') }}</span>
                         @endif
                     </div>
 
-                    <li>
-                        <input type="checkbox" class="nav--check">
-                        <i class="nav-icon"></i>
                         <h3>Đánh giá</h3>
                         <div class="show">
                             <div class="rating">
                                 <div class="item">
                                     <div class="item__start item__flex">
-                                        <input type="checkbox" id="rate-1">
+                                        <input type="radio" name="rate" value="1">
                                         <label for="rate-1">1 sao</label>
                                     </div>
 
@@ -59,7 +56,7 @@
 
                                 <div class="item">
                                     <div class="item__flex">
-                                        <input type="checkbox" id="rate-2">
+                                        <input type="radio" name="rate" value="2">
                                         <label for="rate-2">2 sao</label>
                                     </div>
                                     
@@ -75,7 +72,7 @@
 
                                 <div class="item">
                                     <div class="item__flex">
-                                        <input type="checkbox" id="rate-3">
+                                        <input type="radio" name="rate" value="3">
                                         <label for="rate-3">3 sao</label>
                                     </div>
 
@@ -91,7 +88,7 @@
 
                                 <div class="item">
                                     <div class="item__flex">
-                                        <input type="checkbox" id="rate-4">
+                                        <input type="radio" name="rate" value="4">
                                         <label for="rate-4">4 sao</label>
                                     </div>
                                     
@@ -106,7 +103,7 @@
 
                                 <div class="item">
                                     <div class="item__flex">
-                                        <input type="checkbox" id="rate-5">
+                                        <input type="radio" name="rate" value="5">
                                         <label for="rate-5">5 sao</label>
                                     </div>
 

@@ -75,7 +75,7 @@ class LoginController extends Controller
         $this->guard()->logout();
 
         // And redirect to custom location
-        return redirect()->route('front.home.index');
+        return redirect()->back();
     }
 
     /**
@@ -99,15 +99,20 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
+        session()->put('PREV_URL', url()->previous());
         $this->data['title'] = trans('backpack::base.login'); // set the page title
         $this->data['username'] = $this->username();
-
         return view('front.auth.login', $this->data);
     }
 
     public function customLogin(Request $request)
     {
         $this->login($request);
+        if (session()->has('PREV_URL')) {
+            $url = session()->get('PREV_URL');
+            session()->forget('PREV_URL');
+            return redirect($url);
+        }
         return redirect()->route('front.home.index');
     }
 }

@@ -17,17 +17,16 @@ class Order extends Model
 
     protected $table = 'orders';
     // protected $primaryKey = 'id';
-    // public $timestamps = false;
+     public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = ['user_id',
             'phone',
-            'address',
             'hotel_id',
             'room_id',
             'price',
             'create_at',
             'end_at',
-
+            'serial_number'
         ];
     // protected $hidden = [];
     // protected $dates = [];

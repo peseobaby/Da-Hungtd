@@ -23,7 +23,7 @@ class Room extends Model
     // public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = ['name', 'type_id', 'capacity', 'num_bed_room', 'area', 'price',
-                            'active', 'convenience_id'];
+                            'active', 'convenience_id', 'description'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -34,7 +34,7 @@ class Room extends Model
     */
     public function getAllConvenience()
     {
-        return Convenience::getConvenience(explode(':', $this->convenience->content));
+        return Convenience::getConvenience(explode(':', @$this->convenience->content));
     }
     /*
     |--------------------------------------------------------------------------
@@ -49,6 +49,12 @@ class Room extends Model
     public function convenience()
     {
         return $this->belongsTo(RoomHasConvenience::class, 'convenience_id');
+    }
+
+
+    public function hotel()
+    {
+        return $this->belongsTo('App\Models\Hotel', 'hotel_id');
     }
     /*
     |--------------------------------------------------------------------------
