@@ -9,6 +9,7 @@ use App\Repositories\Hotel\HotelRepositoryInterface;
 use App\Services\Image\ImageServiceInterface;
 use App\Models\Provide;
 use App\Models\City;
+use App\Models\Hotel;
 
 class HotelController extends Controller
 {
@@ -76,7 +77,7 @@ class HotelController extends Controller
     {
         $provinces = getAllProvides();
         $cities = getAllCities();
-        $hotel = $this->hotelRepo->find($id);
+        $hotel = Hotel::with('provide', 'city')->find($id);
         return view('front.hotel.show_hotel', compact('hotel'));
     }
 }

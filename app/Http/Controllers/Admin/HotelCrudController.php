@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Address;
+use App\Models\User;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
@@ -59,21 +59,6 @@ class HotelCrudController extends CrudController
         ]);
 
         $this->crud->addColumn([
-            'name' => 'address',
-            'label' => 'Address',
-            'type' => 'closure',
-            'function' => function($entry) {
-                return $entry->address->getFullAddress();
-            }
-        ]);
-
-        $this->crud->addColumn([
-           'name' => 'rating',
-           'label' => 'Rating',
-           'type' => 'text'
-        ]);
-
-        $this->crud->addColumn([
             'name' => 'image', // The db column name
             'label' => "image", // Table column heading
             'type' => 'image_custom',
@@ -93,19 +78,33 @@ class HotelCrudController extends CrudController
         ]);
 
         $this->crud->addField([  // Select2
-            'label' => "Address",
+            'label' => "User",
             'type' => 'select2',
-            'name' => 'address_id', // the db column for the foreign key
-            'entity' => 'address', // the method that defines the relationship in your Model
+            'name' => 'user_id', // the db column for the foreign key
+            'entity' => 'user', // the method that defines the relationship in your Model
             'attribute' => 'name', // foreign key attribute that is shown to user
-            'model' => Address::class, // foreign key model
+            'model' => User::class, // foreign key model
             'allows_null' => false,
         ]);
 
-        $this->crud->addField([
-            'name' => 'rating',
-            'label' => 'Rating',
-            'type' => 'number',
+        $this->crud->addField([  // Select2
+            'label' => "Provide",
+            'type' => 'select2',
+            'name' => 'provide_id', // the db column for the foreign key
+            'entity' => 'provide', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            'model' => 'App\Models\Provide', // foreign key model
+            'allows_null' => false,
+        ]);
+
+        $this->crud->addField([  // Select2
+            'label' => "City",
+            'type' => 'select2',
+            'name' => 'city_id', // the db column for the foreign key
+            'entity' => 'city', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            'model' => 'App\Models\City', // foreign key model
+            'allows_null' => false,
         ]);
 
         $this->crud->addField([

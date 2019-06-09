@@ -26,7 +26,8 @@ class Order extends Model
             'price',
             'create_at',
             'end_at',
-            'serial_number'
+            'serial_number',
+            'status',
         ];
     // protected $hidden = [];
     // protected $dates = [];

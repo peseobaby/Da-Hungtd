@@ -34,25 +34,26 @@
         </ul>
 
         <!-- Tab panes -->
-        <div class="tab-content">
-          <div class="tab-pane container  active" id="hinhanh">
-            <p class="font-weight-bold">Hãy thu hút người dùng bằng những bức ảnh thật đẹp ở căn hộ của bạn</p>
+        <form method="POST" action="{{route('image.room', $id)}}" enctype="multipart/form-data">
+           @csrf
+          <div class="tab-content">
+            <div class="tab-pane container  active" id="hinhanh">
+              <p class="font-weight-bold">Hãy thu hút người dùng bằng những bức ảnh thật đẹp ở căn hộ của bạn</p>
+              
+                <div class="d-flex form-group">
+                    <div class="image-primary">
+                      <input type="file" name="image[]" multiple>
+                    </div>
 
-            <div class="d-flex form-group">
-                <div class="image-primary">
-                    
-                </div>
-
-                <div class="image-list">
-                    
+                    <div class="image-list">
+                    </div>
                 </div>
             </div>
+          <div class="btn-control">
+              <button class="btn submit">Tiếp</button>
+              <button class="btn" disabled="">Lưu</button>
           </div>
-
-        <div class="btn-control">
-            <button class="btn">Tiếp</button>
-            <button class="btn" disabled="">Lưu</button>
-        </div>
+        </form>
     </section>
 @endsection
 

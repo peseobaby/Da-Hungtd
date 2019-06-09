@@ -50,7 +50,7 @@ class ImageService implements ImageServiceInterface
     public function storageUploadFileImages($uploadFiles, $destination_path = '', $srcFolder = '', $disk = 'local')
     {
         if (!($uploadFiles instanceof Collection)) {
-            $uploadFiles = collect([$uploadFiles]);
+            $uploadFiles = is_array($uploadFiles) ? collect($uploadFiles) : collect([$uploadFiles]);
         }
         return $uploadFiles->map(function($file, $index) use ($disk, $destination_path, $srcFolder) {
             //1.storage image

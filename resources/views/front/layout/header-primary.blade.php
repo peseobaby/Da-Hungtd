@@ -9,6 +9,7 @@
             <ul>
                 @if (backpack_auth()->check())
                     <a href="{{ route('backpack.account.info') }}">{{ backpack_auth()->user()->name }}</a>
+                    <a href="{{ route('show.user', backpack_user()->id) }}">Quản lý thông tin</a>
                 @endif
                 @if (backpack_auth()->guest())
                     <li>
