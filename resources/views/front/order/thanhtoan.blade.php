@@ -209,7 +209,7 @@
 
                                 <div class="total">
                                     <label for="">Tổng giá</label>
-                                    <h4></h4>
+                                    <h4>{{ $order ->price }} VND</h4>
                                 </div>
                             </div>
                         </div>

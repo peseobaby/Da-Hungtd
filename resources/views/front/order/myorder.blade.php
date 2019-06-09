@@ -64,7 +64,13 @@
                         <td>{{ $order->create_at }}</td>
                         <td>{{ $order->end_at }}</td>
                         <td>{{ $order->price }}</td>
-                        <td>Incomplete</td>
+                        @if($order->status == 0)
+                            <td>Đang chờ chấp nhận</td>
+                        @elseif($order->status == 1)
+                            <td>Đã đặt</td>
+                        @else
+                            <td>Bị Hủy</td>
+                        @endif
                         <td><a class="btn">Chi tiết đặt phòng</a></td>
                     </tr>
                     @endforeach

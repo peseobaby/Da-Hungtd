@@ -91,6 +91,22 @@ class RoomCrudController extends CrudController
         ]);
 
         $this->crud->addField([
+            'name' => 'description',
+            'label' => 'Description',
+            'type' => 'text',
+        ]);
+
+        $this->crud->addField([  // Select2
+            'label' => "Hotel",
+            'type' => 'select2',
+            'name' => 'hotel_id', // the db column for the foreign key
+            'entity' => 'hotel', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            'model' => 'App\Models\Hotel', // foreign key model
+            'allows_null' => false,
+        ]);
+
+        $this->crud->addField([
             'label'     => 'Conveniences',
             'type'      => 'checklist_custom',
             'name'      => 'convenience_id',
@@ -139,6 +155,18 @@ class RoomCrudController extends CrudController
             'label' => 'Price',
             'type' => 'number',
         ]);
+
+        $this->crud->addColumn([  // Select2
+            'label' => "Hotel",
+            'type' => 'select2',
+            'name' => 'hotel_id', // the db column for the foreign key
+            'entity' => 'hotel', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            'model' => 'App\Models\Hotel', // foreign key model
+            'allows_null' => false,
+        ]);
+
+
         $this->crud->addColumn([
             'name' => 'active',
             'label' => 'Active',

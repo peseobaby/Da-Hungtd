@@ -28,7 +28,7 @@
             <article>
                 <section class="homqua">
                     <div class="day">
-                        <h1>Hôm qua</h1>
+                        <h1>Hôm nay</h1>
 
                         <div class="calender">
                             <input type="text" name="checkday" placeholder="Check phòng theo ngày" />
@@ -36,16 +36,16 @@
                     </div>
 
                     <div class="checker">
-                        <!-- Nav tabs -->ôm
+                        <!-- Nav tabs -->
                         <ul class="nav nav-tabs">
                           <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="{{ route('guest.in', $id) }}">Khách nhận phòng</a>
+                            <a class="nav-link active"  href="{{ route('guest.in', $id) }}">Khách nhận phòng</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="{{ route('guest.out', $id) }}">Khách trả phòng</a>
+                            <a class="nav-link"  href="{{ route('guest.out', $id) }}">Khách trả phòng</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="{{ route('guest.at', $id) }}">Lưu trú qua đêm</a>
+                            <a class="nav-link" href="{{ route('guest.at', $id) }}">Lưu trú qua đêm</a>
                           </li>
                         </ul>
 
@@ -56,12 +56,12 @@
                             <div class="item">
                                 <div class="left">
                                     <div class="image">
-                                        <img src="{{ $order->user->cover }}" alt="">
+                                        <img src="{{ asset('assets/images/hanoi.png') }}" alt="">
                                     </div>
 
                                     <div class="detail">
                                         <a href=""><h1>{{ $order->user->name }}</h1></a>
-                                        
+                                        <a href=""><h1>{{ $order->room->name }}</h1></a>
                                         <div class="day-picker">
                                             <span>{{ $order->create_at }} Requested </span>
                                         </div>
@@ -71,12 +71,12 @@
 
                                 <div class="right">
                                     <div class="end">
-                                        <p>1 người &#8226; 1 ngày &#8226; <span class="price">{{ $order->price }}</span></p>
+                                        <p>Tổng giá &#8226; <span class="price">{{ $order->price }}</span></p>
 
                                         <div class="button-control">
-                                            <button class="btn btn-success" >Approve</button>
+                                            <a href="{{ route('accept.order', $order->id) }}"><button class="btn btn-success" >Approve</button></a>
 
-                                            <button class="btn btn-danger">Decline</button>
+                                            <a href="{{ route('destroy.order', $order->id) }}"><button class="btn btn-danger">Decline</button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -95,18 +95,18 @@
                         <!-- Tab contents -->
                         <div class="tab-content">
                           <div class="tab-pane active" id="khachnhan">
-                            @foreach($orders as $order)
+                            @foreach($waits as $wait)
                             <div class="item">
                                 <div class="left">
                                     <div class="image">
-                                        <img src="{{ $order->user->avatar }}" alt="">
+                                        <img src="{{ asset('assets/images/hanoi.png') }}" alt="">
                                     </div>
 
                                     <div class="detail">
-                                        <a href=""><h1>{{ $order->user->name }}</h1></a>
+                                        <a href=""><h1>{{ $wait->user->name }}</h1></a>
                                         
                                         <div class="day-picker">
-                                            <span>{{ $order->create_at }} &#8226; Requested </span>
+                                            <span>{{ $wait->create_at }} &#8226; Requested </span>
                                         </div>
 
                                     </div>
@@ -114,12 +114,12 @@
 
                                 <div class="right">
                                     <div class="end">
-                                        <p>1 người &#8226; 1 ngày &#8226; <span class="price">{{ $order->price }}</span></p>
+                                        <p>1 người &#8226; 1 ngày &#8226; <span class="price">{{ $wait->price }}</span></p>
 
                                         <div class="button-control">
-                                            <button class="btn btn-success" >Approve</button>
+                                            <a href="{{ route('accept.order', $wait->id) }}"><button class="btn btn-success" >Approve</button></a>
 
-                                            <button class="btn btn-danger">Decline</button>
+                                            <a href="{{ route('destroy.order', $wait->id) }}"><button class="btn btn-danger">Decline</button></a>
                                         </div>
                                     </div>
                                 </div>

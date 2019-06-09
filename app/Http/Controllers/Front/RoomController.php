@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\Image\ImageServiceInterface;
 use App\Repositories\Room\RoomRepositoryInterface;
+use App\Repositories\RoomHasConvenience\RoomHasConvenienceRepository;
 use App\Models\RoomType;
 use App\Models\Convenience;
 use Carbon\Carbon;
@@ -18,11 +19,14 @@ use Carbon\Carbon;
 class RoomController extends Controller
 {
     private $room;
-    private $image;
-    public function __construct(RoomRepositoryInterface $room, ImageServiceInterface $image)
+    private $imageService;
+    private $roomHasConvenienceRepo;
+
+    public function __construct(RoomRepositoryInterface $room, ImageServiceInterface $imageService, RoomHasConvenienceRepository $roomHasConvenienceRepo)
     {
         $this->room = $room;
-        $this->image = $image;
+        $this->imageService = $imageService;
+        $this->roomHasConvenienceRepo = $roomHasConvenienceRepo;
     }
 
     public function index($id)
@@ -47,7 +51,7 @@ class RoomController extends Controller
     public function create()
     {
         $types = RoomType::all();
-        return view('front.room.mota', compact('types'));
+        return view('front.room.create', compact('types'));
     }
 
     public function store(Request $request)
@@ -63,17 +67,33 @@ class RoomController extends Controller
     public function convenience($id)
     {
         $conveniences = Convenience::all();
-        return view('front.room.tienich', compact('conveniences'));
+        return view('front.room.tienich', compact('conveniences', 'id'));
     }
 
-    public function image($id)
+    public function updateConvenience(Request $request, $id)
     {
-        return view('front.room.hinhanh');
+        $room = Room::find($id);
+        $convenience = $request->convenince;
+        $request->offsetUnset('convenience_id');
+        $convenience = $this->roomHasConvenienceRepo->updateOrCreateModel(['content' => implode(':', $convenience)]);
+        $room->update(['convenience_id' => $convenience->id]);
+        return view('front.room.hinhanh', compact('id'));
     }
 
-    public function price($id)
+    public function image(Request $request, $id)
     {
-        return view('front.room.gia');
+        $room = Room::find($id);
+        $uploadFiles = $request->image;
+        $images = $this->imageService->storageUploadFileImages($uploadFiles, '', $srcFolder = '', $disk = 'local');
+        $room->images()->sync($images);
+        return view('front.room.gia', compact('id'));
+    }
+
+    public function price(Request $request, $id)
+    {
+        $room = Room::find($id);
+        $room->update(['price' => $request->price]);
+        return redirect()->route('all.room', backpack_user()->hotels->first()->id);
     }
 
     public function show($id)
@@ -121,5 +141,10 @@ class RoomController extends Controller
         }
         $rooms = $rooms->count() == Room::all()->count() ? collect([]) : $rooms;
         return view('front.room.search', compact('rooms'));
+    }
+
+    public function detail($id)
+    {
+        return view('front.room.detail', ['room' => Room::find($id)]);
     }
 }

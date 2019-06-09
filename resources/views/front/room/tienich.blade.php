@@ -36,11 +36,12 @@
         <div class="tab-content">
           <div class="tab-pane container active">
             <p class="font-weight-bold">Thêm các tiện nghi để làm nổi bật căn hộ của bạn với khách hàng</p>
-        <form method="post" action="" role="form">
-            <div class="form-group d-flex">
+        <form method="post" action="{{ route('convenience.update', $id) }}" role="form">
+            @csrf
+            <div class="form-group d-flex row">
                 @foreach($conveniences as $convenience)
-                    <div class="d-flex">
-                        <input type="checkbox" name="convenince" value="{{ $convenience->id }}>
+                    <div class="d-flex col-md-2">
+                        <input type="checkbox" name="convenince[]" value="{{ $convenience->id }}">
                         <label class="col-form-label" for="beboi" class="col-form-label">{{ $convenience->name }}</label>
                     </div>
                 @endforeach

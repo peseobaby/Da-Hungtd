@@ -33,57 +33,39 @@
         </ul>
 
         <!-- Tab panes -->
-        <div class="tab-content">
-          <div class="tab-pane container active" id="gia">
-            <p class="font-weight-bold">Giá cả và các chính sách</p>
+        <form method="POST" action="{{ route('price.room', $id) }}">
+            @csrf
+            <div class="tab-content">
+              <div class="tab-pane container active" id="gia">
+                <p class="font-weight-bold">Giá cả và các chính sách</p>
 
-            <div class="form-group d-flex">
-                <label class="col-form-label" for="">Đơn vị tiền tệ</label>
+                <div class="form-group d-flex">
+                    <label class="col-form-label" for="">Đơn vị tiền tệ</label>
 
-                <div class="col-md-3">
-                        <span value="">Việt Nam Đồng</span>
+                    <div class="col-md-3">
+                            <span value="">Việt Nam Đồng</span>
+                    </div>
                 </div>
-            </div>
 
-            <p class="font-weight-bold">Giá cơ bản</p>
+                <p class="font-weight-bold">Giá cơ bản</p>
 
-            <div class="form-group d-flex twins">
-                <label class="col-form-label" for="gia1dem">Giá 1 đêm</label>
+                <div class="form-group d-flex twins">
+                    <label class="col-form-label" for="gia1dem">Giá 1 đêm</label>
 
-                <div class="input d-flex">
-                    <input type="number" class="form-control form-control-lg">
-                    <label class="col-form-label" for="" class="col-auto">VNĐ / đêm</label>
-                    <i>Giá đã bao gồm 15% hoa hồng cho traveltrip. </i>
+                    <div class="input d-flex">
+                        <input type="number" name="price" class="form-control form-control-lg">
+                        <label class="col-form-label" for="" class="col-auto">VNĐ / đêm</label>
+                        <i>Giá đã bao gồm 15% hoa hồng cho gotravel. </i>
+                    </div>
                 </div>
+
+                <p class="font-weight-bold sm-padding">Chính sách</p>
+                <span class="md-padding">Giá cơ bản đã bao gồm 15$ hoa hồng cho gotravel , nếu bạn muốn đàm phán hoặc không hiểu rõ chính sách của chúng tôi , xin hãy liên hệ với Mr.Hưng qua số điện thoại : 0962642655</span>
+
+            <div class="btn-control">
+                <button class="btn submit" >Lưu</button>
             </div>
-
-            <div class="form-group d-flex">
-                <label class="col-form-label" for="gia1dem">Giá cuối tuần</label>
-
-                <div class="input d-flex">
-                    <input type="number" class="form-control form-control-lg">
-                    <label class="col-form-label" for="" class="col-auto">VNĐ / đêm</label>
-                    <i>Cuối tuần bao gồm: thứ sáu, thứ bảy, chủ nhật.</i>
-                </div>
-            </div>
-
-            <p class="font-weight-bold sm-padding">Giá dài hạn</p>
-            <span class="md-padding">Nếu bạn muốn có mức giá hàng tuần hoặc hàng tháng cho kỳ nghỉ dài hạn, bạn có thể sử dụng tùy chọn này. Chủ nhà sử dụng tùy chọn này để cung cấp giá chiết khấu cho khách có lưu trú dài hơn.</span>
-
-            <div class="form-group d-flex">
-                <label class="col-form-label" for="gia1dem">Giá theo tháng</label>
-
-                <div class="input d-flex">
-                    <input type="number" class="form-control form-control-lg">
-                    <label class="col-form-label" for="" class="col-auto">VND / đêm</label>
-                    <i>Khách sẽ được áp dụng giá này cho bất kỳ đặt phòng nào là 30 đêm trở lên .</i>
-                </div>
-            </div>
-
-        <div class="btn-control">
-            <button class="btn">Tiếp</button>
-            <button class="btn" disabled="">Lưu</button>
-        </div>
+        </form>
     </section>
     @endsection
     <!-- Footer -->

@@ -50,9 +50,9 @@
                                 <p>Cập nhật lần cuối ngày 30-05-2019</p>
 
                                 <div class="crud">
-                                    <a href=""><button class="btn" href="{{ route('edit.room', $room->id) }}">Cập nhật</button></a>
-                                    <a href=""><button class="btn" href="{{-- {{ route('show.room') }} --}}">Xem</button></a>
-                                    <a href=""><button class="btn" href="{{-- {{ route('delete.room') }} --}}">Xóa</button></a>
+                                    <a class="btn" href="{{ route('edit.room', $room->id) }}">Cập nhật</a>
+                                    <a class="btn" href="{{ route('room.detail', $room->id) }}">Xem</a>
+                                    <a class="btn" href="{{-- {{ route('delete.room') }} --}}">Xóa</a>
                                 </div>
                             </div>
                         </div>

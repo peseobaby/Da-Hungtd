@@ -33,8 +33,9 @@ Route::group([
     Route::get('room/edit/{id}', 'RoomController@edit')->name('edit.room');
     Route::post('room/store/', 'RoomController@store')->name('store.room');
     Route::get('room/convenience/{id}', 'RoomController@convenience')->name('convenience.room');
-    Route::get('room/image/{id}', 'RoomController@image')->name('image.room');
-    Route::get('room/price/{id}', 'RoomController@price')->name('price.room');
+    Route::post('room/convenience/{id}', 'RoomController@updateConvenience')->name('convenience.update');
+    Route::post('room/image/{id}', 'RoomController@image')->name('image.room');
+    Route::post('room/price/{id}', 'RoomController@price')->name('price.room');
     Route::get('room/show/{id}', 'RoomController@show')->name('show.room');
     Route::post('room/search', 'RoomController@search')->name('show.search');
     Route::get('room/search/{idProvince}', 'RoomController@searchProvince')->name('show.search-province');
@@ -56,6 +57,10 @@ Route::group([
     Route::post('order/set-order/{id}', 'OrderController@setOrder')->name('set.order');
     Route::post('order/update/{id}', 'OrderController@update')->name('update.order');
     Route::get('order/myorder/{id}', 'OrderController@showOrder')->name('my.order');
+    Route::get('room/detail/{id}', 'RoomController@detail')->name('room.detail');
+    Route::get('order/accept/{id}', 'OrderController@accept')->name('accept.order');
+    Route::get('order/destroy/{id}', 'OrderController@destroy')->name('destroy.order');
+    Route::get('event/create/{id}', 'EventController@create')->name('create.event');
 
 
     //auth

@@ -39,13 +39,13 @@
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs">
                           <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="{{ route('guest.in', $id) }}">Khách nhận phòng</a>
+                            <a class="nav-link" href="{{ route('guest.in', $id) }}">Khách nhận phòng</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link  active" data-toggle="tab" href="{{ route('guest.out', $id) }}">Khách trả phòng</a>
+                            <a class="nav-link active" href="{{ route('guest.out', $id) }}">Khách trả phòng</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="{{ route('guest.at', $id) }}">Lưu trú qua đêm</a>
+                            <a class="nav-link" href="{{ route('guest.at', $id) }}">Lưu trú qua đêm</a>
                           </li>
                         </ul>
 
@@ -74,7 +74,7 @@
                                         <p>1 người &#8226; 1 ngày &#8226; <span class="price">{{ $order->price }}</span></p>
 
                                         <div class="button-control">
-                                            <button class="btn btn-success" >Approve</button>
+                                            <a href=""><button class="btn btn-success" >Approve</button></a>
 
                                             <button class="btn btn-danger">Decline</button>
                                         </div>

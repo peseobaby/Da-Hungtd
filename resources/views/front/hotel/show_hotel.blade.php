@@ -23,7 +23,7 @@
             @if($hotel == null)
                 <p class="font-weight-bold">Bạn chưa đăng khách sạn nào vào hệ thống , hãy tạo mới khách sạn cho bạn</p>
                 <a class="btn" href="{{ route('front.hotel.create') }}">Danh sách phòng của khách sạn</a>
-            @endif
+            @else
             <!-- Tab panes -->
             <div class="tab-content">
               <div class="tab-pane container active" id="mota">
@@ -49,9 +49,7 @@
                     <label class="col-form-label" for="loaicanho">Tỉnh</label>
 
                     <div class="input">
-                        <select name="" id="" class="form-control form-control-lg">
-                            <option value="">Hà Nội</option>
-                        </select>
+                        <label class="col-form-label" for="loaicanho">{{ $hotel->provide->name }}</label>
                     </div>
                 </div>
 
@@ -59,15 +57,15 @@
                     <label class="col-form-label" for="loaicanho">Quận/Huyện</label>
 
                     <div class="input">
-                        <select name="" id="" class="form-control form-control-lg">
-                            <option value="">Gia Lâm</option>
-                        </select>
+                             <label class="col-form-label" for="loaicanho">{{ $hotel->city->name }}</label>
                     </div>
                 </div>
                 <div class="btn-control">
+                    <a href="{{ route('guest.in', $hotel->id) }}"><button class="btn" >Thông tin đơn đăt phòng</button>
                     <a href="{{ route('all.room', $hotel->id) }}"><button class="btn" >Danh sách phòng của khách sạn</button>
                 </div>
               </div>
+            @endif
         </section>
     @endsection
 
