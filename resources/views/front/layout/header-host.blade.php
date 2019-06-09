@@ -23,7 +23,7 @@
                 <li><a href="" class="active">Bảng thông tin</a></li>
                 <li><a href="{{route('front.hotel.search') }}">Tìm kiếm</a></li>
                 <li><a href="">Đặt phòng</a></li>
-                @if(!backpack_user()->hotels)
+                @if(!backpack_user()->hotels->count())
                     <li><a href="{{ route('front.hotel.create') }}">Đăng khách sạn của bạn</a></li>
                 @else
                     <li><a href="{{ route('front.hotel.show', backpack_user()->hotels->first()->id) }}">khách sạn của bạn</a></li>
