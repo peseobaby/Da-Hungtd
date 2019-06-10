@@ -42,7 +42,7 @@
                     @csrf
                     <div class="form__item form__input">
                         <input type="text" class="form-control" name="query"
-                               placeholder="Chọn thành phố, địa điểm">
+                               placeholder="Chọn thành phố, địa điểm, tiện nghi, tên phòng">
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
 
