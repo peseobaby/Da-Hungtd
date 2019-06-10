@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Models\City;
 use App\Models\Hotel;
 use App\Models\Order;
+use App\Models\Provide;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -104,7 +106,28 @@ class RoomController extends Controller
     public function search(Request $request)
     {
         $query = Room::query();
+        $roomsCities = collect([]);
+        $roomsCountries = collect([]);
+        $roomsConviences = collect();
+
         if ($request->get('query')) {
+            $cities = City::where('name', 'like', '%' . $request->get('query') . '%')->pluck('id')->toArray();
+            $roomsCities = count($cities) ? Room::whereHas('hotel', function($query) use ($cities){
+                $query->whereIn('city_id', $cities);
+            })->get() : collect([]);
+
+            $countries = Provide::where('name', 'like', '%' . $request->get('query') . '%')->pluck('id')->toArray();
+            $roomsCountries= count($countries) ?  Room::whereHas('hotel', function($query) use ($countries){
+                $query->whereIn('provide_id', $countries);
+            })->get() : collect([]);
+
+            $conviences = Convenience::where('name', 'like', '%' . $request->get('query') . '%')->get()->implode('id', ':');
+            if ($conviences !== '') {
+                $roomsConviences = $conviences !== '' ? Room::whereHas('convenience', function($query) use ($conviences){
+                    $query->where('content', 'like', '%' . $conviences . '%');
+                })->get() : collect([]);
+            }
+
             $query = $query->where('description', 'like', '%' . $request->get('query') . '%')
                 ->orWhere('name', 'like', $request->get('query'));
         }
@@ -119,12 +142,32 @@ class RoomController extends Controller
             $query = $query->where('capacity', '>=', $request->get('capacity'));
         }
         $rooms = $query->get();
-        foreach ($rooms as $room) {
+
+        $response = collect([]);
+        $roomsCities->each(function($item) use ($response) {
+            $response->push($item);
+        });
+
+        $roomsCountries->each(function($item) use ($response) {
+            $response->push($item);
+        });
+
+        $roomsConviences->each(function($item) use ($response) {
+            $response->push($item);
+        });
+
+        $rooms->each(function($item) use ($response) {
+            $response->push($item);
+        });
+
+        $response->unique();
+
+        foreach ($response as $room) {
             $ratings = $room->feedbacks->count() ? $room->feedbacks->pluck('rate')->toArray() : [];
             $ratings = array_filter($ratings);
             $room->average = count($ratings) ? FLOOR(array_sum($ratings)/count($ratings)) : 0;
         }
-        return view('front.room.search', compact('rooms'));
+        return view('front.room.search', ['rooms' => $response]);
     }
 
     public function searchProvince($idProvince)
