@@ -170,8 +170,14 @@ class RoomController extends Controller
         return view('front.room.search', ['rooms' => $response]);
     }
 
+    public function searchAdvance()
+    {
+        return view('front.home.search');
+    }
+
     public function searchProvince($idProvince)
     {
+        return view('front.room.search',  ['rooms' => Room::query()->limit(5)->get()]);
         $query = Room::query();
         $query = $query->whereHas('hotel', function($query) use ($idProvince) {
            $query->where('provide_id', (int)$idProvince);

@@ -25,7 +25,7 @@ Route::group([
     Route::get('hotel/edit/{id}', 'HotelController@edit')->name('front.hotel.edit');
     Route::post('hotel/update/{id}', 'HotelController@update')->name('front.hotel.update');
 
-
+    Route::get('room/ad-search', 'RoomController@searchAdvance')->name('show.search-ad');
     Route::get('room/create', 'RoomController@create')->name('add.room');
     Route::get('room/{id}', 'RoomController@index')->name('all.room');
     Route::get('room/active/{id}', 'RoomController@getActive')->name('active.room');

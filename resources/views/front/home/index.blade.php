@@ -14,19 +14,7 @@
     <section class="banner">
         <div class="search">
             <!-- Search Tab -->
-            <nav class="search__nav">
-                <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                        <a class="active" data-toggle="tab" href="#hotels">Rooms</a>
-                    </li>
-{{--                    <li class="nav-item">--}}
-{{--                        <a data-toggle="tab" href="#homestay">Homestay</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a data-toggle="tab" href="#activity">Activity</a>--}}
-{{--                    </li>--}}
-                </ul>
-            </nav>
+
 
             <!-- Search Form  -->
             <div class="info__nav">
@@ -67,7 +55,6 @@
                         </button>
                     </div>
                 </form>
-
                 <div class="filter-more checkbox">
                     <input type="checkbox" id="more">
                     <label for="more">Tùy chọn khác</label>
@@ -88,6 +75,13 @@
                     </div>
                 </div>
             </div>
+            <nav class="search__nav" style="margin-top: 10px">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a href="{{ route('show.search-ad') }}" style="height: 28px; padding: 5px;background: #f76667;color: #fff;border-radius: 5px;">Search Advance Rooms</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
 
     </section>
